@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Google_Sans } from "next/font/google";
+import { DM_Sans } from "next/font/google";
+
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Navbar } from "@/components/navbar";
 
-const googleSans = Google_Sans({
-  variable: "--font-google-sans",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
@@ -20,14 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={`${googleSans.variable}  antialiased`}>
+      <body className={`${dmSans.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Navbar />
+          <main className="layout min-h-screen">{children}</main>
         </ThemeProvider>
       </body>
     </html>
