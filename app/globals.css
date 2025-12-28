@@ -8,7 +8,7 @@
   --color-foreground: var(--foreground);
   --color-muted-foreground: var(--muted-foreground);
   --color-primary: var(--primary);
-  --font-google-sans: var(--font-google-sans);
+  --font-dm-sans: var(--font-dm-sans);
   --color-border: var(--border);
 }
 
@@ -33,12 +33,21 @@
     @apply border-border p-0 m-0;
   }
   body {
-    @apply bg-background text-primary font-google-sans transition-colors duration-300;
+    @apply bg-background text-primary font-dm-sans transition-colors duration-300;
   }
 }
 
 @layer utilities {
   .layout {
     @apply mx-auto px-5 md:px-10 xl:px-32;
+  }
+  .primary-btn {
+    @apply rounded-md px-8 h-12 text-lg font-medium text-foreground w-52 shadow-sm cursor-pointer;
+  }
+  .outline-btn {
+    @apply rounded-md px-8 h-12 text-lg font-medium border border-blue-300/30 shadow-sm hover:bg-foreground cursor-pointer w-52;
+  }
+  .hover-effect {
+    @apply text-muted-foreground cursor-pointer hover:text-primary/80 transition-colors duration-200;
   }
 }
