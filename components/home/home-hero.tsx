@@ -23,10 +23,10 @@ export const HomeHero = () => {
       >
         {/* Top label */}
         <motion.div
-          className="inline-block bg-foreground py-2 px-6 rounded-full shadow-sm"
+          className="inline-block bg-foreground py-3 px-6 rounded-full shadow-sm"
           variants={itemVariants}
         >
-          <span className="text-base font-medium tracking-wide">
+          <span className="text-base font-medium tracking-wide font-jetbrains-mono">
             Hi, It's me{" "}
             <span className="text-blue-400">Full Stack Developer</span>
           </span>
@@ -54,7 +54,7 @@ export const HomeHero = () => {
 
         {/* Subtitle */}
         <motion.p
-          className="text-base sm:text-lg md:text-xl text-muted-foreground mx-auto leading-relaxed"
+          className="text-base sm:text-lg md:text-xl text-muted-foreground mx-auto leading-relaxed font-jetbrains-mono"
           variants={itemVariants}
         >
           I'm a developer passionate about creating beautiful, functional web

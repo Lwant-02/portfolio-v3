@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { JetBrains_Mono, Inter } from "next/font/google";
 
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -22,7 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={`${dmSans.variable} antialiased`}>
+      <body
+        className={`${jetBrainsMono.variable} ${inter.variable} antialiased`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

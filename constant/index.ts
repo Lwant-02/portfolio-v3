@@ -1,3 +1,5 @@
+import selectedProject from "@/assets/images/pica_ai.png";
+
 // Animation variants
 export const containerVariants = {
   hidden: { opacity: 0 },
@@ -21,3 +23,5 @@ export const itemVariants = {
     },
   },
 };
+
+export const images = { selectedProject };
