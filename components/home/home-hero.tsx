@@ -34,7 +34,7 @@ export const HomeHero = () => {
 
         {/* Main headline */}
         <motion.h1
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight"
           variants={itemVariants}
         >
           Sai Naw Main
