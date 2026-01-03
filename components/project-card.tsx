@@ -20,23 +20,23 @@ export const ProjectCard = ({
     <div className="space-y-10">
       {/* Project Mockup */}
       <motion.div
-        className="relative w-full aspect-video rounded-md overflow-hidden bg-foreground group"
+        className="relative w-full aspect-4/2 rounded-md overflow-hidden border border-foreground group shadow-sm"
         variants={itemVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <div className="relative cursor-pointer w-full h-full rounded-md overflow-hidden shadow-sm">
+        <div className="relative cursor-pointer w-full h-full rounded-md overflow-hidden">
           <Image
             src={image}
             alt="Pica AI Assistant Project Mockup"
             fill
             loading="eager"
-            className="object-cover hover:scale-105 transition-transform duration-700"
+            className="object-center hover:scale-105 transition-transform duration-700"
           />
 
-          {/* Date overlay - shows on hover */}
-          <div className="absolute bottom-0 right-0 w-full p-6 bg-linear-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          {/* Date overlay - always visible on mobile, shows on hover on desktop */}
+          <div className="absolute bottom-0 right-0 w-full xl:p-6 p-3 sm:p-5 bg-linear-to-t from-black/80 to-transparent opacity-100 xl:opacity-0 xl:group-hover:opacity-100 transition-opacity duration-500">
             <p className="text-base md:text-lg text-white font-medium text-right">
               {date}
             </p>

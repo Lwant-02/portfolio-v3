@@ -63,7 +63,7 @@ export const ThemeToggle = () => {
 
       <DropdownMenuContent
         align="end"
-        className="w-36 rounded-md p-1.5 border border-blue-300/30"
+        className="w-36 rounded-md p-1.5 border border-blue-300/30 bg-background"
       >
         {themes.map((themeOption) => {
           const Icon = themeOption.icon;
