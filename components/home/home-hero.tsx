@@ -1,37 +1,48 @@
 "use client";
 
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
+import { motion } from "motion/react";
 
 import { Button } from "../ui/button";
 import { FlipWords } from "./flip-words";
+import { containerVariants, itemVariants } from "@/constant";
+import { scrollToSection } from "@/lib/utils";
 
 export const HomeHero = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section
       className="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden"
       id="home"
     >
       {/* Content container */}
-      <div className="text-center space-y-6 z-10">
+      <motion.div
+        className="text-center space-y-6 z-10"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {/* Top label */}
-        <div className="inline-block bg-foreground py-2 px-6 rounded-full shadow-sm">
+        <motion.div
+          className="inline-block bg-foreground py-2 px-6 rounded-full shadow-sm"
+          variants={itemVariants}
+        >
           <span className="text-base font-medium tracking-wide">
-            Hi, It's me Full Stack Developer
+            Hi, It's me{" "}
+            <span className="text-blue-400">Full Stack Developer</span>
           </span>
-        </div>
+        </motion.div>
 
         {/* Main headline */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight">
+        <motion.h1
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight"
+          variants={itemVariants}
+        >
           Sai Naw Main
-        </h1>
-        <div className="text-3xl md:text-6xl font-bold">
+        </motion.h1>
+        <motion.div
+          className="text-3xl md:text-6xl font-bold"
+          variants={itemVariants}
+        >
           I love{" "}
           <FlipWords
             words={["creating", "building", "designing", "crafting"]}
@@ -39,18 +50,24 @@ export const HomeHero = () => {
             className="text-blue-400!"
           />{" "}
           amazing experiences
-        </div>
+        </motion.div>
 
         {/* Subtitle */}
-        <p className="text-base sm:text-lg md:text-xl text-muted-foreground mx-auto leading-relaxed">
+        <motion.p
+          className="text-base sm:text-lg md:text-xl text-muted-foreground mx-auto leading-relaxed"
+          variants={itemVariants}
+        >
           I'm a developer passionate about creating beautiful, functional web
           applications.
           <br />
           Let's bring your ideas to life together.
-        </p>
+        </motion.p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          variants={itemVariants}
+        >
           <Button
             type="button"
             onClick={() => scrollToSection("projects")}
@@ -68,12 +85,15 @@ export const HomeHero = () => {
           >
             Contact
           </Button>
-        </div>
-        <div className="flex justify-center items-center gap-4">
-          <IconBrandGithub className="size-6 hover-effect" />
-          <IconBrandLinkedin className="size-6 hover-effect" />
-        </div>
-      </div>
+        </motion.div>
+        <motion.div
+          className="flex justify-center items-center gap-4"
+          variants={itemVariants}
+        >
+          <IconBrandGithub className="size-6 hover-effect cursor-pointer" />
+          <IconBrandLinkedin className="size-6 hover-effect cursor-pointer" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
