@@ -28,10 +28,6 @@ const navLinks = [
     label: "Ask Me",
     link: "/ask-me",
   },
-  {
-    label: "Contact",
-    link: "/contact",
-  },
 ];
 
 export const Navbar = () => {
