@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { containerVariants, itemVariants, testProject } from "@/constant";
 import { ShowcaseCard } from "../showcase-card";
 
-export const SelectedProject = () => {
+export const SelectedAchievement = () => {
   return (
     <section
       className="min-h-screen w-full pb-32 flex justify-center items-center"
@@ -26,7 +26,7 @@ export const SelectedProject = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          Flagship Project
+          Signature Milestone
         </motion.h2>
 
         <motion.p
@@ -36,7 +36,7 @@ export const SelectedProject = () => {
           viewport={{ once: true }}
           className="text-xl font-medium font-jetbrains-mono text-muted-foreground"
         >
-          Check out my selected project!
+          Some of my achievements on my journey
         </motion.p>
 
         {/* Project Showcase */}

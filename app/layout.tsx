@@ -4,6 +4,7 @@ import { JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
+import { ClientProvider } from "@/components/client-provider";
 
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
@@ -30,15 +31,17 @@ export default function RootLayout({
       <body
         className={`${jetBrainsMono.variable} ${inter.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          <main className="layout min-h-screen">{children}</main>
-        </ThemeProvider>
+        <ClientProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Navbar />
+            <main className="layout min-h-screen">{children}</main>
+          </ThemeProvider>
+        </ClientProvider>
       </body>
     </html>
   );

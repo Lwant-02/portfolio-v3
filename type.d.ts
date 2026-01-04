@@ -1,6 +1,6 @@
 import type { StaticImageData } from "next/image";
 
-interface ProjectCardProps {
+interface ShowcaseCardProps {
   image: string | StaticImageData;
   title: string;
   description: string;

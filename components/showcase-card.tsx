@@ -6,16 +6,16 @@ import { IconWorldShare } from "@tabler/icons-react";
 
 import { itemVariants } from "@/constant";
 import { Button } from "./ui/button";
-import { ProjectCardProps } from "@/type";
+import { ShowcaseCardProps } from "@/type";
 
-export const ProjectCard = ({
+export const ShowcaseCard = ({
   image,
   title,
   description,
   link,
   extraLink,
   date,
-}: ProjectCardProps) => {
+}: ShowcaseCardProps) => {
   return (
     <div className="space-y-10">
       {/* Project Mockup */}

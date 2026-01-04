@@ -2,10 +2,11 @@
 
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 import { Button } from "../ui/button";
 import { FlipWords } from "./flip-words";
-import { containerVariants, itemVariants } from "@/constant";
+import { containerVariants, github, itemVariants, linkedin } from "@/constant";
 import { scrollToSection } from "@/lib/utils";
 
 export const HomeHero = () => {
@@ -27,8 +28,8 @@ export const HomeHero = () => {
           variants={itemVariants}
         >
           <span className="text-base font-medium tracking-wide font-jetbrains-mono">
-            Hi, It's me{" "}
-            <span className="text-blue-400">Full Stack Developer</span>
+            Hay, It's me{" "}
+            <span className="text-blue-400">Full-Stack Developer</span>
           </span>
         </motion.div>
 
@@ -90,8 +91,12 @@ export const HomeHero = () => {
           className="flex justify-center items-center gap-4"
           variants={itemVariants}
         >
-          <IconBrandGithub className="size-6 hover-effect cursor-pointer" />
-          <IconBrandLinkedin className="size-6 hover-effect cursor-pointer" />
+          <Link href={github.link} target="_blank" rel="noopener noreferrer">
+            <IconBrandGithub className="size-7 hover-effect cursor-pointer" />
+          </Link>
+          <Link href={linkedin} target="_blank" rel="noopener noreferrer">
+            <IconBrandLinkedin className="size-7 hover-effect cursor-pointer" />
+          </Link>
         </motion.div>
       </motion.div>
     </section>
