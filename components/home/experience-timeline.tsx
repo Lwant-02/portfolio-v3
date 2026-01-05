@@ -21,8 +21,8 @@ export const ExperienceTimeline = () => {
         {/* Section Header */}
         <motion.h2
           className="text-3xl md:text-6xl font-bold tracking-tight"
-          variants={itemVariants}
           initial="hidden"
+          variants={itemVariants}
           whileInView="visible"
           viewport={{ once: true }}
         >

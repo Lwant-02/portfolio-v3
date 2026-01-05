@@ -63,9 +63,11 @@ export const Contribution = () => {
         >
           <GitHubCalendar
             username={github.username}
-            colorScheme={theme === "dark" ? "dark" : "light"}
+            colorScheme={
+              theme === "dark" || theme === "system" ? "dark" : "light"
+            }
             theme={
-              theme === "dark"
+              theme === "dark" || theme === "system"
                 ? {
                     dark: colorScheme.dark,
                   }

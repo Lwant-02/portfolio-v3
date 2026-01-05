@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { ClientProvider } from "@/components/client-provider";
+import { Toaster } from "sonner";
 
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
@@ -41,6 +42,15 @@ export default function RootLayout({
             <Navbar />
             <main className="layout min-h-screen">{children}</main>
           </ThemeProvider>
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 5000,
+              style: {
+                fontSize: "15px",
+              },
+            }}
+          />
         </ClientProvider>
       </body>
     </html>

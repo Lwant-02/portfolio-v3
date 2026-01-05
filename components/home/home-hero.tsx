@@ -1,6 +1,5 @@
 "use client";
 
-import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 
@@ -8,6 +7,8 @@ import { Button } from "../ui/button";
 import { FlipWords } from "./flip-words";
 import { containerVariants, github, itemVariants, linkedin } from "@/constant";
 import { scrollToSection } from "@/lib/utils";
+import GithubIcon from "../ui/github-icon";
+import LinkedinIcon from "../ui/linkedin-icon";
 
 export const HomeHero = () => {
   return (
@@ -92,10 +93,10 @@ export const HomeHero = () => {
           variants={itemVariants}
         >
           <Link href={github.link} target="_blank" rel="noopener noreferrer">
-            <IconBrandGithub className="size-7 hover-effect cursor-pointer" />
+            <GithubIcon className="size-7 hover-effect cursor-pointer" />
           </Link>
           <Link href={linkedin} target="_blank" rel="noopener noreferrer">
-            <IconBrandLinkedin className="size-7 hover-effect cursor-pointer" />
+            <LinkedinIcon className="size-7 hover-effect cursor-pointer" />
           </Link>
         </motion.div>
       </motion.div>

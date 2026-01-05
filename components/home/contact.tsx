@@ -3,11 +3,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { motion } from "framer-motion";
-import { IconSend } from "@tabler/icons-react";
+import { motion } from "motion/react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
-import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -19,6 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { containerVariants, itemVariants } from "@/constant";
 import { Textarea } from "../ui/textarea";
+import SendIcon from "../ui/send-icon";
 
 const formSchema = z.object({
   email: z.email({ message: "Please enter a valid email!" }),
@@ -59,7 +58,7 @@ export const Contact = () => {
         >
           Get in touch
         </motion.h2>
-        <motion.p
+        <motion.div
           variants={itemVariants}
           initial="hidden"
           whileInView="visible"
@@ -67,10 +66,17 @@ export const Contact = () => {
           className="text-xl font-medium font-jetbrains-mono text-muted-foreground"
         >
           I would love to hear from you whatever it is!
-        </motion.p>
+        </motion.div>
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <motion.form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-8"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
               <FormField
                 control={form.control}
                 name="email"
@@ -105,19 +111,22 @@ export const Contact = () => {
                   </FormItem>
                 )}
               />
-              <Button
+              <button
+                className="primary-btn w-full! bg-primary hover:bg-primary/90 flex gap-2 items-center justify-center"
                 type="submit"
-                size="lg"
-                className="primary-btn group w-full!"
               >
-                <span className="flex items-center gap-2 ">
-                  Send a message
-                  <IconSend className="size-5" />
-                </span>
-              </Button>
-            </form>
+                Send a message
+                <SendIcon className="size-6" />
+              </button>
+            </motion.form>
           </Form>
-          <div className="size-full flex justify-center items-center">
+          <motion.div
+            className="size-full flex justify-center items-center"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             <div className="relative size-80 md:size-96 lg:size-120">
               <DotLottieReact
                 src="https://lottie.host/838350fc-c83c-4943-9f59-ea9472cbca6a/v5JuDHiFm8.lottie"
@@ -126,7 +135,7 @@ export const Contact = () => {
                 className="w-full h-full"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>
