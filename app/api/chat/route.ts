@@ -1,5 +1,5 @@
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
-import { streamText, UserModelMessage } from "ai";
+import { convertToModelMessages, streamText, type UIMessage } from "ai";
 
 const googleGenerativeAI = createGoogleGenerativeAI({
   apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY!,
@@ -7,21 +7,21 @@ const googleGenerativeAI = createGoogleGenerativeAI({
 
 export const POST = async (req: Request) => {
   try {
-    const body = await req.json();
-    const { messages }: { messages: UserModelMessage[] } = body;
+    const { messages }: { messages: UIMessage[] } = await req.json();
 
     if (!messages || !Array.isArray(messages)) {
       console.error("Invalid messages received:", messages);
       return Response.json(
-        { error: "Messages must be an array" },
+        { error: "Messages array is required" },
         { status: 400 }
       );
     }
 
+    // Stream the response using AI SDK
     const result = streamText({
       system: "You are a helpful assistant and your name is Lwant.",
       model: googleGenerativeAI("gemini-2.5-flash"),
-      messages: messages,
+      messages: await convertToModelMessages(messages),
       temperature: 0.7,
       providerOptions: {
         google: {
@@ -35,6 +35,7 @@ export const POST = async (req: Request) => {
       },
     });
 
+    // Return streaming response for API routes (not RSC)
     return result.toUIMessageStreamResponse();
   } catch (error: any) {
     console.error("Streaming error:", error.message);
