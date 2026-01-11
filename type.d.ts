@@ -28,3 +28,8 @@ interface Technology {
   icon: React.ReactNode;
   color: string;
 }
+
+interface MessageType {
+  role: "user" | "assistant";
+  content: string;
+}

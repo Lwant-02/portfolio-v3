@@ -1,13 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Loader } from "lucide-react";
+import { motion } from "motion/react";
+
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 interface ChatMessageProps {
-  role: "user" | "assistant" | "system";
+  role: "user" | "system" | "tool" | "assistant";
   content: string;
-  error: boolean;
+  error: string | null;
   status: "error" | "streaming" | "ready" | "submitted";
 }
 
@@ -22,7 +24,7 @@ export const ChatMessage = ({
   return (
     <div
       className={cn(
-        "flex w-full mb-4 gap-2 sm:gap-5",
+        "flex w-full mb-4 gap-2 sm:gap-5 font-jetbrains-mono",
         isUser ? "justify-end" : "justify-start"
       )}
     >
@@ -64,18 +66,31 @@ export const ChatMessage = ({
           className={cn(
             isUser
               ? "max-w-[90%] px-4 py-3 rounded-md shadow-sm bg-foreground text-primary"
-              : "max-w-full"
+              : "max-w-full flex items-center"
           )}
         >
-          <p className="text-base leading-relaxed whitespace-pre-wrap wrap-break-word">
-            {content}
-            {/* Streaming indicator for assistant messages */}
-            {!isUser && status === "streaming" && (
-              <span className="inline-flex items-center ml-1">
-                <span className="animate-pulse text-primary/60">▊</span>
+          {!isUser && status === "streaming" ? (
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center justify-center"
+            >
+              <span className="text-primary/60 flex justify-center items-center gap-2">
+                <Loader className="size-5 animate-spin" />
+                <p className="text-xs animate-pulse">Thinking...</p>
               </span>
-            )}
-          </p>
+            </motion.span>
+          ) : (
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-base leading-relaxed whitespace-pre-wrap wrap-break-word"
+            >
+              {content}
+            </motion.p>
+          )}
         </div>
       )}
     </div>

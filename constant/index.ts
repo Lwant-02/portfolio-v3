@@ -103,4 +103,24 @@ export const github = {
 
 export const linkedin = "https://www.linkedin.com/in/sai-naw-main-03b655281/";
 
+export const email = "jaimain671@gmail.com";
+
+export const SAMPLE_QUESTIONS = [
+  {
+    question: "What are your tech stacks?",
+  },
+  {
+    question: "Are you available for hire?",
+  },
+  {
+    question: "How many years of experience do you have?",
+  },
+  {
+    question: "What projects have you worked on?",
+  },
+  {
+    question: "How can I contact you?",
+  },
+];
+
 export const images = { selectedProject };

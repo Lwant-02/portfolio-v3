@@ -5,10 +5,17 @@ import Link from "next/link";
 
 import { Button } from "../ui/button";
 import { FlipWords } from "./flip-words";
-import { containerVariants, github, itemVariants, linkedin } from "@/constant";
+import {
+  containerVariants,
+  email,
+  github,
+  itemVariants,
+  linkedin,
+} from "@/constant";
 import { scrollToSection } from "@/lib/utils";
 import GithubIcon from "../ui/github-icon";
 import LinkedinIcon from "../ui/linkedin-icon";
+import MailFilledIcon from "../ui/mail-filled-icon";
 
 export const HomeHero = () => {
   return (
@@ -97,6 +104,13 @@ export const HomeHero = () => {
           </Link>
           <Link href={linkedin} target="_blank" rel="noopener noreferrer">
             <LinkedinIcon className="size-7 hover-effect cursor-pointer" />
+          </Link>
+          <Link
+            href={`mailto:${email}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MailFilledIcon className="size-7 hover-effect cursor-pointer" />
           </Link>
         </motion.div>
       </motion.div>

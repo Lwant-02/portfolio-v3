@@ -1,5 +1,5 @@
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
-import { convertToModelMessages, streamText, type UIMessage } from "ai";
+import { generateText, ModelMessage } from "ai";
 
 const googleGenerativeAI = createGoogleGenerativeAI({
   apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY!,
@@ -7,7 +7,7 @@ const googleGenerativeAI = createGoogleGenerativeAI({
 
 export const POST = async (req: Request) => {
   try {
-    const { messages }: { messages: UIMessage[] } = await req.json();
+    const { messages }: { messages: ModelMessage[] } = await req.json();
 
     if (!messages || !Array.isArray(messages)) {
       console.error("Invalid messages received:", messages);
@@ -18,10 +18,10 @@ export const POST = async (req: Request) => {
     }
 
     // Stream the response using AI SDK
-    const result = streamText({
+    const { text } = await generateText({
       system: "You are a helpful assistant and your name is Lwant.",
       model: googleGenerativeAI("gemini-2.5-flash"),
-      messages: await convertToModelMessages(messages),
+      prompt: messages,
       temperature: 0.7,
       providerOptions: {
         google: {
@@ -36,7 +36,16 @@ export const POST = async (req: Request) => {
     });
 
     // Return streaming response for API routes (not RSC)
-    return result.toUIMessageStreamResponse();
+    return Response.json(
+      {
+        message: {
+          role: "assistant",
+          content: text,
+        },
+        success: true,
+      },
+      { status: 200 }
+    );
   } catch (error: any) {
     console.error("Streaming error:", error.message);
     return Response.json({ error: "Internal Server Error" }, { status: 500 });
