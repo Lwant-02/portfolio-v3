@@ -1,7 +1,8 @@
 "use client";
 
-import { Loader } from "lucide-react";
+import { Check, Copy, Loader } from "lucide-react";
 import { motion } from "motion/react";
+import { useState } from "react";
 
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
@@ -13,7 +14,19 @@ interface ChatMessageProps {
 }
 
 export const ChatMessage = ({ role, content, status }: ChatMessageProps) => {
+  const [isCopied, setIsCopied] = useState(false);
   const isUser = role === "user";
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(content);
+      setIsCopied(true);
+
+      setTimeout(() => setIsCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy text:", err);
+    }
+  };
 
   return (
     <div
@@ -31,7 +44,6 @@ export const ChatMessage = ({ role, content, status }: ChatMessageProps) => {
       )}
 
       {/* Message Content */}
-
       <div
         className={cn(
           isUser
@@ -57,14 +69,31 @@ export const ChatMessage = ({ role, content, status }: ChatMessageProps) => {
             </span>
           </motion.span>
         ) : (
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-base leading-relaxed whitespace-pre-wrap wrap-break-word"
-          >
-            {content}
-          </motion.p>
+          <>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-base leading-relaxed whitespace-pre-wrap wrap-break-word"
+            >
+              {content}
+            </motion.p>
+            {!isUser && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex w-full justify-start mt-1"
+                onClick={copyToClipboard}
+              >
+                {isCopied ? (
+                  <Check className="size-4 hover-effect cursor-pointer" />
+                ) : (
+                  <Copy className="size-4 hover-effect cursor-pointer" />
+                )}
+              </motion.div>
+            )}
+          </>
         )}
       </div>
     </div>

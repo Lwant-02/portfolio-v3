@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Inter } from "next/font/google";
+import { Toaster } from "sonner";
 
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { ClientProvider } from "@/components/client-provider";
-import { Toaster } from "sonner";
 
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",

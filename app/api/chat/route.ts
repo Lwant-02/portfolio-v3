@@ -1,6 +1,8 @@
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { generateText, ModelMessage } from "ai";
 
+import { SYSTEM_PROMPT } from "@/constant";
+
 const googleGenerativeAI = createGoogleGenerativeAI({
   apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY!,
 });
@@ -19,7 +21,7 @@ export const POST = async (req: Request) => {
 
     // Stream the response using AI SDK
     const { text } = await generateText({
-      system: "You are a helpful assistant and your name is Lwant.",
+      system: SYSTEM_PROMPT,
       model: googleGenerativeAI("gemini-3-flash-preview"),
       prompt: messages,
       temperature: 0.7,
@@ -35,7 +37,6 @@ export const POST = async (req: Request) => {
       },
     });
 
-    // Return streaming response for API routes (not RSC)
     return Response.json(
       {
         message: {

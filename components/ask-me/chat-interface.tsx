@@ -23,7 +23,6 @@ export const ChatInterface = () => {
   const [input, setInput] = useState<string>("");
   const [messages, setMessages] = useState<MessageType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
   const [todayLimit, setTodayLimit] = useState<number>(0);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const { containerRef, bottomRef } = useAutoScroll([...messages, isLoading]);
@@ -35,7 +34,6 @@ export const ChatInterface = () => {
 
     const userMessage = input;
     setInput("");
-    setError(null);
 
     // Add user message to chat
     const updatedMessages = [
@@ -94,8 +92,6 @@ export const ChatInterface = () => {
   // Handle clicking on sample questions
   const handleQuestionClick = async (question: string) => {
     if (isLoading) return;
-
-    setError(null);
 
     // Add user message to chat
     const updatedMessages = [
@@ -165,11 +161,11 @@ export const ChatInterface = () => {
     <div className="flex-1 overflow-y-auto py-6 pb-36" ref={containerRef}>
       {messages.length > 0 && (
         <p className="w-full text-xs font-jetbrains-mono text-center text-muted-foreground mb-5">
-          Today you can ask{" "}
+          You can ask{" "}
           <span className="text-blue-300">
             {MAX_MESSAGES_PER_DAY - todayLimit}
           </span>{" "}
-          more questions
+          more questions today!
         </p>
       )}
       <div className="max-w-5xl mx-auto space-y-4">
