@@ -7,42 +7,60 @@ import { ArrowUp } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 
 import { Button } from "../ui/button";
-import { cn } from "@/lib/utils";
+import {
+  canSendMessageToday,
+  cn,
+  getTotalMessageCountToday,
+  incrementMessageCountToday,
+  MAX_MESSAGES_PER_DAY,
+} from "@/lib/utils";
 import { clientApi } from "@/lib/axios";
 import { MessageType } from "@/type";
 import { IntroMessage } from "./intro-message";
+import { useAutoScroll } from "@/hooks/use-auto-scroll";
 
 export const ChatInterface = () => {
   const [input, setInput] = useState<string>("");
   const [messages, setMessages] = useState<MessageType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [todayLimit, setTodayLimit] = useState<number>(0);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  // useEffect(() => {
-  //   scrollToBottom();
-  // }, [messages]);
+  const { containerRef, bottomRef } = useAutoScroll([...messages, isLoading]);
 
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
 
+    const userMessage = input;
     setInput("");
     setError(null);
 
     // Add user message to chat
     const updatedMessages = [
       ...messages,
-      { role: "user" as const, content: input },
+      { role: "user" as const, content: userMessage },
     ];
     setMessages(updatedMessages);
+
+    // Check limit AFTER showing user message
+    if (!canSendMessageToday()) {
+      // Show limit message as assistant response
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant" as const,
+          content:
+            "You have reached the daily limit of messages. Please come back tomorrow!",
+        },
+      ]);
+      return;
+    }
+
+    incrementMessageCountToday();
     setIsLoading(true);
+
     try {
       const response = await clientApi.post("/chat", {
         messages: updatedMessages,
@@ -51,11 +69,23 @@ export const ChatInterface = () => {
       if (response.data.success && response.data.message) {
         setMessages((prev) => [...prev, response.data.message]);
       } else {
-        setError("Failed to get response");
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content: "Failed to get response! Please try again later.",
+          },
+        ]);
       }
     } catch (err: any) {
       console.error("Chat error:", err);
-      setError(err.response?.data?.error || "Something went wrong");
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: "Failed to get response! Please try again later.",
+        },
+      ]);
     } finally {
       setIsLoading(false);
     }
@@ -73,6 +103,22 @@ export const ChatInterface = () => {
       { role: "user" as const, content: question },
     ];
     setMessages(updatedMessages);
+
+    // Check limit AFTER showing user message
+    if (!canSendMessageToday()) {
+      // Show limit message as assistant response
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant" as const,
+          content:
+            "You have reached the daily limit of messages. Please come back tomorrow!",
+        },
+      ]);
+      return;
+    }
+
+    incrementMessageCountToday();
     setIsLoading(true);
 
     try {
@@ -83,25 +129,55 @@ export const ChatInterface = () => {
       if (response.data.success && response.data.message) {
         setMessages((prev) => [...prev, response.data.message]);
       } else {
-        setError("Failed to get response");
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content: "Failed to get response! Please try again later.",
+          },
+        ]);
       }
     } catch (err: any) {
       console.error("Chat error:", err);
-      setError(err.response?.data?.error || "Something went wrong");
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: "Failed to get response! Please try again later.",
+        },
+      ]);
     } finally {
       setIsLoading(false);
     }
   };
 
+  // Get today's message count from localStorage (client-side only)
+  useEffect(() => {
+    setTodayLimit(getTotalMessageCountToday());
+  }, [messages]);
+
+  //Get input focus when mount
+  useEffect(() => {
+    textareaRef.current?.focus();
+  }, []);
+
   return (
-    <div className="flex-1 overflow-y-auto py-6 mb-36">
+    <div className="flex-1 overflow-y-auto py-6 pb-36" ref={containerRef}>
+      {messages.length > 0 && (
+        <p className="w-full text-xs font-jetbrains-mono text-center text-muted-foreground mb-5">
+          Today you can ask{" "}
+          <span className="text-blue-300">
+            {MAX_MESSAGES_PER_DAY - todayLimit}
+          </span>{" "}
+          more questions
+        </p>
+      )}
       <div className="max-w-5xl mx-auto space-y-4">
         {messages.length === 0 ? (
           <IntroMessage onQuestionClick={handleQuestionClick} />
         ) : (
           messages.map((message, index) => (
             <ChatMessage
-              error={error}
               key={index}
               role={message.role}
               status="ready"
@@ -110,14 +186,10 @@ export const ChatInterface = () => {
           ))
         )}
         {isLoading && (
-          <ChatMessage
-            error={error}
-            role="assistant"
-            status="streaming"
-            content=""
-          />
+          <ChatMessage role="assistant" status="streaming" content="" />
         )}
-        <div ref={messagesEndRef} />
+        <div ref={bottomRef} />
+
         <div className="w-full px-4 pb-4 fixed bottom-0 left-0 right-0 bg-background z-50">
           {/* Main Command Input */}
           <motion.div

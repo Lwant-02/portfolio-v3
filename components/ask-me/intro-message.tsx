@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react";
 
-import { MessageType } from "@/type";
 import { SAMPLE_QUESTIONS } from "@/constant";
 
 interface IntroMessageProps {

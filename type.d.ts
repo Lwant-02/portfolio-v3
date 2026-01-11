@@ -33,3 +33,8 @@ interface MessageType {
   role: "user" | "assistant";
   content: string;
 }
+
+interface DailyLimit {
+  date: string;
+  count: number;
+}

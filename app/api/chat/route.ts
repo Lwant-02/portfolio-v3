@@ -20,7 +20,7 @@ export const POST = async (req: Request) => {
     // Stream the response using AI SDK
     const { text } = await generateText({
       system: "You are a helpful assistant and your name is Lwant.",
-      model: googleGenerativeAI("gemini-2.5-flash"),
+      model: googleGenerativeAI("gemini-3-flash-preview"),
       prompt: messages,
       temperature: 0.7,
       providerOptions: {
