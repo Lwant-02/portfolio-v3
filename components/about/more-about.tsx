@@ -22,7 +22,7 @@ export const MoreAbout = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            More About <span className="text-blue-400">Me</span>
+            More About Me
           </motion.h2>
           <motion.p
             variants={itemVariants}

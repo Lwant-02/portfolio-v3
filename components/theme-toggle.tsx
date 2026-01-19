@@ -75,7 +75,7 @@ export const ThemeToggle = () => {
               onClick={() => setTheme(themeOption.value)}
               className={cn(
                 "flex items-center gap-2 p-2 rounded-md cursor-pointer text-muted-foreground hover:bg-foreground hover:text-primary/80 transition-colors duration-150",
-                isActive && "text-primary/80"
+                isActive && "text-primary/80",
               )}
             >
               <Icon className="size-5 hover:text-primary/80" />

@@ -29,6 +29,7 @@ export const AboutHero = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
+        viewport={{ once: true }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left side - Image */}
@@ -37,13 +38,8 @@ export const AboutHero = () => {
             variants={itemVariants}
           >
             <div className="relative">
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -left-4 w-full h-full border-2 border-blue-400/30 rounded-md" />
-              <div className="absolute -bottom-4 -right-4 w-full h-full bg-linear-to-br from-blue-500/10 to-purple-500/10 rounded-md" />
-
               {/* Main image container */}
-              <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-md overflow-hidden bg-foreground shadow-2xl">
-                {/* Uncomment when you have an actual image */}
+              <div className="relative w-72 h-72 border border-blue-300/30 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-md overflow-hidden bg-foreground shadow-2xl">
                 <Image
                   src={images.selectedProject}
                   alt="Sai Naw Main - Lwant"
@@ -55,16 +51,11 @@ export const AboutHero = () => {
               </div>
 
               {/* Floating badge */}
-              <motion.div
-                className="absolute -bottom-3 -right-3 bg-background border border-blue-300/30 rounded-full px-4 py-2 shadow-lg"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
-              >
+              <div className="absolute -bottom-3 -right-3 bg-background border border-blue-300/30 rounded-full px-4 py-2 shadow-lg">
                 <span className="text-sm font-jetbrains-mono text-blue-400">
                   Open to Work ✨
                 </span>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
 
@@ -84,12 +75,6 @@ export const AboutHero = () => {
               >
                 Sai Naw Main
               </motion.h1>
-              <motion.p
-                className="text-2xl sm:text-3xl font-semibold text-muted-foreground"
-                variants={itemVariants}
-              >
-                Full-Stack Developer
-              </motion.p>
             </div>
 
             {/* Quick Info */}
@@ -129,7 +114,10 @@ export const AboutHero = () => {
               </div>
 
               {/* Social Links */}
-              <div className="flex items-center gap-6">
+              <motion.div
+                className="flex items-center gap-6"
+                variants={itemVariants}
+              >
                 <span className="text-sm text-muted-foreground font-jetbrains-mono">
                   Find me on
                 </span>
@@ -156,7 +144,7 @@ export const AboutHero = () => {
                     <MailFilledIcon className="size-6 hover-effect cursor-pointer" />
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>
