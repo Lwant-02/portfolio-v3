@@ -237,14 +237,14 @@ export const Technologies = () => {
 
         {/* Description */}
         <motion.p
-          className="text-lg md:text-xl text-muted-foreground w-full border-t border-blue-300/30 py-5 font-jetbrains-mono"
+          className="text-lg italic md:text-xl text-muted-foreground w-full border-t border-blue-300/30 py-5 font-jetbrains-mono"
           variants={itemVariants}
         >
-          The stacks behind the{" "}
+          "The stacks behind the{" "}
           <span className="text-primary font-medium">
             clean, high-performance
           </span>{" "}
-          web experiences I build.
+          web experiences I build."
         </motion.p>
       </motion.div>
     </section>

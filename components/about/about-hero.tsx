@@ -34,7 +34,7 @@ export const AboutHero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left side - Image */}
           <motion.div
-            className="relative flex justify-center"
+            className="relative flex justify-center w-full"
             variants={itemVariants}
           >
             <div className="relative">
@@ -96,7 +96,7 @@ export const AboutHero = () => {
 
             {/* Bio */}
             <motion.p
-              className="text-lg text-muted-foreground leading-relaxed max-w-xl font-jetbrains-mono"
+              className="text-lg text-muted-foreground leading-relaxed w-full font-jetbrains-mono"
               variants={itemVariants}
             >
               I'm a passionate developer who loves building beautiful,

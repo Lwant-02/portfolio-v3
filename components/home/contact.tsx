@@ -17,7 +17,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { containerVariants, itemVariants } from "@/constant";
 import { Textarea } from "../ui/textarea";
-import SendIcon from "../ui/send-icon";
 
 const formSchema = z.object({
   email: z.email({ message: "Please enter a valid email!" }),
@@ -116,7 +115,6 @@ export const Contact = () => {
                 type="submit"
               >
                 Send a message
-                <SendIcon className="size-6" />
               </button>
             </motion.form>
           </Form>

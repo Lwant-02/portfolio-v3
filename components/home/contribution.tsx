@@ -85,10 +85,10 @@ export const Contribution = () => {
 
         {/* Description */}
         <motion.p
-          className="text-lg md:text-xl text-muted-foreground w-full border-t border-blue-300/30 py-5 font-jetbrains-mono"
+          className="text-lg md:text-xl italic text-muted-foreground w-full border-t border-blue-300/30 py-5 font-jetbrains-mono"
           variants={itemVariants}
         >
-          A snapshot of my{" "}
+          "A snapshot of my{" "}
           <span className="text-primary font-medium">coding consistency</span>.
           Full activity available on{" "}
           <Link
@@ -98,7 +98,7 @@ export const Contribution = () => {
           >
             GitHub
           </Link>
-          .
+          ."
         </motion.p>
       </motion.div>
     </section>
