@@ -8,7 +8,7 @@ import { Timeline } from "../timeline";
 export const Education = () => {
   return (
     <section
-      className="min-h-screen w-full pb-32 sm:py-0 pt-10"
+      className="min-h-screen w-full pb-32 sm:pb-10 pt-10"
       id="experience"
     >
       <motion.div
