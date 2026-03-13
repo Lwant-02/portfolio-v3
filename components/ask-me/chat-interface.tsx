@@ -186,7 +186,7 @@ export const ChatInterface = () => {
         )}
         <div ref={bottomRef} />
 
-        <div className="w-full px-4 pb-4 fixed bottom-0 left-0 right-0 bg-background z-50">
+        <div className="w-full px-6 sm:px-10 xl:px-0 pb-4 fixed bottom-0 left-0 right-0 bg-background z-50">
           {/* Main Command Input */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -222,7 +222,7 @@ export const ChatInterface = () => {
                   className={cn(
                     "w-full resize-none font-jetbrains-mono bg-transparent text-primary text-base placeholder:text-muted-foreground",
                     "focus:outline-none border-0 focus:ring-0 outline-none",
-                    "h-20 py-2 px-1"
+                    "h-20 py-2 px-1",
                   )}
                   rows={1}
                   style={{ border: "none", outline: "none" }}
@@ -244,7 +244,7 @@ export const ChatInterface = () => {
                   "size-10 p-0 rounded-full shrink-0 transition-all duration-200",
                   input.trim()
                     ? "bg-primary hover:bg-primary/80 text-background cursor-pointer"
-                    : "bg-muted-foreground text-foreground cursor-not-allowed opacity-50"
+                    : "bg-muted-foreground text-foreground cursor-not-allowed opacity-50",
                 )}
               >
                 <ArrowUp className="size-5" />

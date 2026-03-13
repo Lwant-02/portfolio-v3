@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ProjectList } from "@/components/projects/project-list";
 import { Footer } from "@/components/footer";
 
@@ -5,6 +6,11 @@ export const metadata = {
   title: "Sai Naw Main | Lwant | Projects",
   description:
     "Explore my projects — from design systems and AI assistants to typing tutors and PDF tools.",
+=======
+export const metadata = {
+  title: "Sai Naw Main | Lwant | Projects",
+  description: "Projects Page",
+>>>>>>> d8c45104db3169f836c789470fd3d938766f8ade
 };
 
 export default function Page() {
