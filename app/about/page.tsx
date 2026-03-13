@@ -1,6 +1,7 @@
 import { AboutHero } from "@/components/about/about-hero";
 import { Education } from "@/components/about/education";
 import { MoreAbout } from "@/components/about/more-about";
+import { Footer } from "@/components/footer";
 
 export const metadata = {
   title: "Sai Naw Main | Lwant | About",
@@ -18,6 +19,8 @@ export default function Page() {
 
       {/* Education */}
       <Education />
+
+      <Footer />
     </div>
   );
 }

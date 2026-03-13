@@ -7,10 +7,7 @@ import { Timeline } from "../timeline";
 
 export const Education = () => {
   return (
-    <section
-      className="min-h-screen w-full pb-32 sm:py-0 pt-10"
-      id="experience"
-    >
+    <section className="min-h-screen w-full pb-32 sm:py-10" id="experience">
       <motion.div
         className="w-full mx-auto space-y-7"
         variants={containerVariants}

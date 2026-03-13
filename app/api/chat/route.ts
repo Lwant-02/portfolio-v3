@@ -15,11 +15,10 @@ export const POST = async (req: Request) => {
       console.error("Invalid messages received:", messages);
       return Response.json(
         { error: "Messages array is required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
-    // Stream the response using AI SDK
     const { text } = await generateText({
       system: SYSTEM_PROMPT,
       model: googleGenerativeAI("gemini-3-flash-preview"),
@@ -30,6 +29,18 @@ export const POST = async (req: Request) => {
           safetySettings: [
             {
               category: "HARM_CATEGORY_HARASSMENT",
+              threshold: "BLOCK_NONE",
+            },
+            {
+              category: "HARM_CATEGORY_HATE_SPEECH",
+              threshold: "BLOCK_NONE",
+            },
+            {
+              category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              threshold: "BLOCK_NONE",
+            },
+            {
+              category: "HARM_CATEGORY_DANGEROUS_CONTENT",
               threshold: "BLOCK_NONE",
             },
           ],
@@ -45,7 +56,7 @@ export const POST = async (req: Request) => {
         },
         success: true,
       },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error: any) {
     console.error("Streaming error:", error.message);

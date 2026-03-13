@@ -38,3 +38,23 @@ interface DailyLimit {
   date: string;
   count: number;
 }
+
+interface ProjectData {
+  slug: string;
+  image: string | StaticImageData;
+  title: string;
+  description: string;
+  link: string;
+  date: string;
+  tags: string[];
+}
+
+interface AchievementData {
+  slug: string;
+  image: string | StaticImageData;
+  title: string;
+  description: string;
+  link: string;
+  date: string;
+  category: string;
+}

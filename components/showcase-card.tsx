@@ -57,7 +57,7 @@ export const ShowcaseCard = ({
         </motion.div>
 
         <motion.p
-          className="text-lg md:text-xl text-muted-foreground w-full leading-relaxed font-jetbrains-mono"
+          className="text-lg md:text-xl text-muted-foreground w-full leading-relaxed font-jetbrains-mono line-clamp-2"
           variants={itemVariants}
           initial="hidden"
           whileInView="visible"
