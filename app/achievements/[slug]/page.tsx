@@ -23,13 +23,22 @@ export async function generateMetadata({
 
   if (!achievement) {
     return {
-      title: "Achievement Not Found | Lwant",
+      title: "Achievement Not Found",
     };
   }
 
   return {
-    title: `${achievement.title} | Sai Naw Main | Lwant`,
+    title: achievement.title,
     description: achievement.description,
+    alternates: {
+      canonical: `/achievements/${slug}`,
+    },
+    openGraph: {
+      title: `${achievement.title} | Lwant`,
+      description: achievement.description,
+      type: "article",
+      url: `/achievements/${slug}`,
+    },
   };
 }
 

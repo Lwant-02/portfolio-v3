@@ -17,9 +17,103 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const BASE_URL = "https://lwant.dev";
+
 export const metadata: Metadata = {
-  title: "Sai Naw Main | Lwant",
-  description: "Sai Naw Main | Lwant",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "Sai Naw Main (Lwant) | Full-Stack Developer Portfolio",
+    template: "%s | Lwant",
+  },
+  description:
+    "Full-stack developer passionate about creating beautiful, functional web applications. Experienced in Next.js, React, TypeScript, and AI integration. Explore my projects, achievements, and journey.",
+  keywords: [
+    "Sai Naw Main",
+    "Lwant",
+    "full-stack developer",
+    "frontend developer",
+    "web developer portfolio",
+    "Next.js developer",
+    "React developer",
+    "TypeScript",
+    "UI/UX",
+    "software engineer",
+    "Pico Innovation",
+    "MijnUI",
+    "LikDai",
+    "Pica Chat",
+  ],
+  authors: [{ name: "Sai Naw Main", url: BASE_URL }],
+  creator: "Sai Naw Main (Lwant)",
+  publisher: "Sai Naw Main (Lwant)",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: BASE_URL,
+    siteName: "Lwant Portfolio",
+    title: "Sai Naw Main (Lwant) | Full-Stack Developer Portfolio",
+    description:
+      "Full-stack developer passionate about creating beautiful, functional web applications. Explore my projects, achievements, and development journey.",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Sai Naw Main (Lwant) – Full-Stack Developer Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sai Naw Main (Lwant) | Full-Stack Developer Portfolio",
+    description:
+      "Full-stack developer passionate about creating beautiful, functional web applications. Explore my projects, achievements, and development journey.",
+    images: ["/opengraph-image.png"],
+  },
+  alternates: {
+    canonical: BASE_URL,
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
+
+// JSON-LD structured data for Person (developer portfolio)
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Sai Naw Main",
+  alternateName: "Lwant",
+  description:
+    "Full-stack developer passionate about creating beautiful, functional web applications. Experienced in Next.js, React, TypeScript, and AI integration.",
+  url: BASE_URL,
+  email: "jaimain671@gmail.com",
+  jobTitle: "Full-Stack Developer",
+  sameAs: [
+    "https://github.com/Lwant-02",
+    "https://www.linkedin.com/in/sai-naw-main-03b655281/",
+  ],
+  knowsAbout: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Node.js",
+    "AI SDK",
+    "UI/UX Design",
+    "Web Development",
+  ],
 };
 
 export default function RootLayout({
@@ -32,6 +126,10 @@ export default function RootLayout({
       <body
         className={`${jetBrainsMono.variable} ${inter.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <ClientProvider>
           <ThemeProvider
             attribute="class"
@@ -56,3 +154,4 @@ export default function RootLayout({
     </html>
   );
 }
+

@@ -5,6 +5,9 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { motion } from "motion/react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { useState } from "react";
+import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
 
 import {
   Form,
@@ -17,6 +20,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { containerVariants, itemVariants } from "@/constant";
 import { Textarea } from "../ui/textarea";
+import { sendContactEmail } from "@/action/nodemailer.action";
 
 const formSchema = z.object({
   email: z.email({ message: "Please enter a valid email!" }),
@@ -24,6 +28,8 @@ const formSchema = z.object({
 });
 
 export const Contact = () => {
+  const [isPending, setIsPending] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -32,9 +38,29 @@ export const Contact = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsPending(true);
+
+    try {
+      const formData = new FormData();
+      formData.append("email", values.email);
+      formData.append("message", values.message);
+
+      const result = await sendContactEmail(formData);
+
+      if (result?.error) {
+        toast.error(result.error);
+      } else {
+        toast.success("Message sent successfully! I'll get back to you soon.");
+        form.reset();
+      }
+    } catch (error) {
+      toast.error("An unexpected error occurred. Please try again later.");
+    } finally {
+      setIsPending(false);
+    }
   }
+
   return (
     <section
       className="min-h-screen w-full flex items-center justify-center"
@@ -70,12 +96,13 @@ export const Contact = () => {
           <Form {...form}>
             <motion.form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-8"
+              className="space-y-6"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
             >
+
               <FormField
                 control={form.control}
                 name="email"
@@ -103,7 +130,7 @@ export const Contact = () => {
                       <Textarea
                         placeholder="Leave some meaningful message"
                         {...field}
-                        className="resize-none h-40 rounded-md shadow-sm border border-blue-300/30 focus:ring-1! focus:ring-blue-300/50"
+                        className="resize-none h-32 rounded-md shadow-sm border border-blue-300/30 focus:ring-1! focus:ring-blue-300/50"
                       />
                     </FormControl>
                     <FormMessage className="text-blue-400" />
@@ -111,10 +138,18 @@ export const Contact = () => {
                 )}
               />
               <button
-                className="primary-btn w-full! bg-primary hover:bg-primary/90 flex gap-2 items-center justify-center"
+                className="primary-btn w-full! bg-primary hover:bg-primary/90 flex gap-2 items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 type="submit"
+                disabled={isPending}
               >
-                Send a message
+                {isPending ? (
+                  <>
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  "Send a message"
+                )}
               </button>
             </motion.form>
           </Form>
@@ -130,7 +165,7 @@ export const Contact = () => {
                 src="https://lottie.host/838350fc-c83c-4943-9f59-ea9472cbca6a/v5JuDHiFm8.lottie"
                 loop
                 autoplay
-                className="w-full h-full"
+                className="w-full h-full text-blue-500"
               />
             </div>
           </motion.div>

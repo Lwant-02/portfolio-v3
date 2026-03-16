@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { ArrowLeft, Calendar } from "lucide-react";
+import { ArrowLeft, Calendar, ExternalLink } from "lucide-react";
 
 import { containerVariants, itemVariants } from "@/constant";
 import { Button } from "../ui/button";
@@ -30,18 +30,6 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
               All Projects
             </Link>
           </Button>
-        </motion.div>
-
-        {/* Tags */}
-        <motion.div className="flex flex-wrap gap-2" variants={itemVariants}>
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-xs font-jetbrains-mono px-3 py-1.5 rounded-full bg-foreground text-muted-foreground border border-blue-300/30"
-            >
-              {tag}
-            </span>
-          ))}
         </motion.div>
 
         {/* Title */}
@@ -103,6 +91,14 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
               </div>
             ))}
           </div>
+        </motion.div>
+        <motion.div variants={itemVariants}>
+          <Button asChild variant="outline" className="outline-btn group w-72">
+            <Link href="/projects" className="flex items-center gap-2">
+              See Demo
+              <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+            </Link>
+          </Button>
         </motion.div>
       </motion.div>
     </section>

@@ -23,13 +23,22 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "Project Not Found | Lwant",
+      title: "Project Not Found",
     };
   }
 
   return {
-    title: `${project.title} | Sai Naw Main | Lwant`,
+    title: project.title,
     description: project.description,
+    alternates: {
+      canonical: `/projects/${slug}`,
+    },
+    openGraph: {
+      title: `${project.title} | Lwant`,
+      description: project.description,
+      type: "article",
+      url: `/projects/${slug}`,
+    },
   };
 }
 

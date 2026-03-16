@@ -4,7 +4,7 @@ interface ShowcaseCardProps {
   image: string | StaticImageData;
   title: string;
   description: string;
-  link: string;
+  link?: string;
   extraLink?: string;
   date: string;
 }

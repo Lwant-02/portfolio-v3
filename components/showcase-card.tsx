@@ -26,12 +26,15 @@ export const ShowcaseCard = ({
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <div className="relative cursor-pointer w-full h-full rounded-md overflow-hidden">
+        <Link
+          href={link || ""}
+          className="relative block cursor-pointer w-full h-full rounded-md overflow-hidden"
+        >
           <Image
             src={image}
-            alt="Pica AI Assistant Project Mockup"
+            alt={title}
             fill
-            loading="eager"
+            priority
             className="object-center hover:scale-105 transition-transform duration-700"
           />
 
@@ -41,7 +44,7 @@ export const ShowcaseCard = ({
               {date}
             </p>
           </div>
-        </div>
+        </Link>
       </motion.div>
 
       {/* Project Details */}
@@ -76,22 +79,27 @@ export const ShowcaseCard = ({
           {extraLink && (
             <Button asChild size="lg" className="primary-btn group">
               <Link href={extraLink} className="flex items-center gap-2 ">
-                View All Projects
+                See All Projects
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </Button>
           )}
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="outline-btn group"
-          >
-            <Link href={link} className="flex items-center gap-2 max-w-full">
-              <span className="truncate">{title}</span>
-              <IconWorldShare className="size-5 shrink-0" />
-            </Link>
-          </Button>
+          {link && (
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="outline-btn group"
+            >
+              <Link
+                href={link || ""}
+                className="flex items-center gap-2 max-w-full"
+              >
+                <span className="truncate">See Detail</span>
+                <IconWorldShare className="size-5 shrink-0" />
+              </Link>
+            </Button>
+          )}
         </motion.div>
       </div>
     </div>

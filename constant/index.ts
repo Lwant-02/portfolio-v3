@@ -30,7 +30,6 @@ export const testProject = {
   title: "LikDai (Shan Typing Tutor)",
   description:
     "LikDai – A modern and interactive typing tutor with support for Shan and English languages. Built for accuracy tracking, real-time feedback, and a smooth user experience.",
-  link: "/projects",
   extraLink: "/projects",
   date: "Mar 2024 - Present",
 };
