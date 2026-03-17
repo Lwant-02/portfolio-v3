@@ -36,8 +36,7 @@ export const HomeHero = () => {
           variants={itemVariants}
         >
           <span className="text-base font-medium tracking-wide font-jetbrains-mono">
-            Hay, It's me{" "}
-            <span className="text-blue-400">Full-Stack Developer</span>
+            Hey, It's me
           </span>
         </motion.div>
 

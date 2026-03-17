@@ -2,8 +2,9 @@
 
 import { motion } from "motion/react";
 
-import { containerVariants, experiences, itemVariants } from "@/constant";
+import { containerVariants, itemVariants } from "@/constant";
 import { Timeline } from "../timeline";
+import { experiences } from "@/data/experience";
 
 export const ExperienceTimeline = () => {
   return (

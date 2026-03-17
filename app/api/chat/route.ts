@@ -1,7 +1,7 @@
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { generateText, ModelMessage } from "ai";
 
-import { SYSTEM_PROMPT } from "@/constant";
+import { SYSTEM_PROMPT } from "@/data/prompt";
 
 const googleGenerativeAI = createGoogleGenerativeAI({
   apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY!,

@@ -2,8 +2,9 @@
 
 import { motion } from "motion/react";
 
-import { containerVariants, itemVariants, projects } from "@/constant";
+import { containerVariants, itemVariants } from "@/constant";
 import { ShowcaseCard } from "../showcase-card";
+import { projects } from "@/data/project";
 
 export const ProjectList = () => {
   return (

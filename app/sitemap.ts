@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
-import { projects } from "@/constant";
-import { achievements } from "@/constant";
+import { projects } from "@/data/project";
+import { achievements } from "@/data/achievement";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://lwant.dev";

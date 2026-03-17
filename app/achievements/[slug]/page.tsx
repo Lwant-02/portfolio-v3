@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 
-import { achievements } from "@/constant";
+import { achievements } from "@/data/achievement";
 import { AchievementDetail } from "@/components/achievements/achievement-detail";
 import { Footer } from "@/components/footer";
 

@@ -2,8 +2,9 @@
 
 import { motion } from "motion/react";
 
-import { achievements, containerVariants, itemVariants } from "@/constant";
+import { containerVariants, itemVariants } from "@/constant";
 import { ShowcaseCard } from "../showcase-card";
+import { achievements } from "@/data/achievement";
 
 export const AchievementList = () => {
   return (

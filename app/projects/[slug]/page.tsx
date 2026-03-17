@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 
-import { projects } from "@/constant";
+import { projects } from "@/data/project";
 import { ProjectDetail } from "@/components/projects/project-detail";
 import { Footer } from "@/components/footer";
 
