@@ -45,7 +45,7 @@ export const IntroMessage = ({ onQuestionClick }: IntroMessageProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 + index * 0.1 }}
               onClick={() => handleQuestionClick(item.question)}
-              className={`relative hover:bg-foreground cursor-pointer border rounded-md p-5 border-blue-300/30  text-left `}
+              className={`relative hover:bg-foreground cursor-pointer border rounded-full p-5 border-blue-300/30  text-left `}
             >
               <p className="text-primary font-medium leading-relaxed font-jetbrains-mono">
                 {item.question}

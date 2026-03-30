@@ -1,4 +1,6 @@
 import selectedProject from "@/assets/images/pica_ai.png";
+import profile from "@/assets/images/profile.jpg";
+import hamster from "@/assets/images/hamster.png";
 
 // Animation variants
 export const containerVariants = {
@@ -60,4 +62,4 @@ export const testProject = {
   date: "Mar 2024 - Present",
 };
 
-export const images = { selectedProject };
+export const images = { selectedProject, profile, hamster };

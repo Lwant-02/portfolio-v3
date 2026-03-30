@@ -5,7 +5,7 @@ import {
   Gamepad2,
   Code2,
   Music,
-  Coffee,
+  Dumbbell,
   Sparkles,
   Rocket,
   Briefcase,
@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 
 import { containerVariants, itemVariants } from "@/constant";
+import { cn } from "@/lib/utils";
 
 // Quick stats data - Updated with real achievements
 const quickStats = [
@@ -62,11 +63,6 @@ const interests = [
     color: "text-pink-400",
   },
   {
-    icon: <Coffee className="size-5" />,
-    label: "Coffee",
-    color: "text-amber-400",
-  },
-  {
     icon: <Sparkles className="size-5" />,
     label: "New Tech",
     color: "text-cyan-400",
@@ -75,6 +71,11 @@ const interests = [
     icon: <Rocket className="size-5" />,
     label: "Building",
     color: "text-orange-400",
+  },
+  {
+    label: "Sports",
+    icon: <Dumbbell className="size-5" />,
+    color: "text-green-400",
   },
 ];
 
@@ -151,13 +152,15 @@ export const MoreAbout = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="flex flex-col gap-3 p-5 rounded-xl border border-blue-300/30 bg-foreground"
+                  className="flex flex-col justify-center items-center gap-3 p-5 rounded-full border border-blue-300/30 bg-foreground"
                 >
-                  <span className={stat.color}>{stat.icon}</span>
                   <div>
-                    <p className="text-2xl md:text-3xl font-bold">
-                      {stat.value}
-                    </p>
+                    <div className="flex justify-center items-center gap-3">
+                      <span className={cn(stat.color)}>{stat.icon}</span>
+                      <p className="text-2xl md:text-3xl font-bold text-center">
+                        {stat.value}
+                      </p>
+                    </div>
                     <p className="text-sm text-muted-foreground font-jetbrains-mono">
                       {stat.label}
                     </p>
@@ -189,7 +192,7 @@ export const MoreAbout = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="flex items-center gap-2.5 px-4 py-3 rounded-xl border border-blue-300/30 bg-foreground"
+                  className="flex items-center gap-2.5 px-4 py-3 rounded-full border border-blue-300/30 bg-foreground"
                 >
                   <span className={interest.color}>{interest.icon}</span>
                   <span className="text-sm font-medium font-jetbrains-mono">

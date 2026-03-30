@@ -37,7 +37,7 @@ export const Navbar = () => {
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="w-full bg-background h-20 top-0 sticky z-50 backdrop-blur-lg  layout flex items-center"
+      className="w-full bg-background h-20 top-0 sticky z-50 backdrop-blur-lg layout flex items-center"
     >
       <div className="flex items-center justify-between w-full h-full">
         <Link href="/" className="text-xl font-bold">
@@ -51,7 +51,7 @@ export const Navbar = () => {
                 key={link.label}
                 className={cn(
                   "text-lg font-medium hover-effect",
-                  pathName === link.link && "text-primary/80!"
+                  pathName === link.link && "text-primary/80!",
                 )}
               >
                 {link.label}

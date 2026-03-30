@@ -39,12 +39,11 @@ export const AboutHero = () => {
           >
             <div className="relative">
               {/* Main image container */}
-              <div className="relative w-72 h-72 border border-blue-300/30 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-md overflow-hidden bg-foreground shadow-2xl">
+              <div className="relative w-72 border border-blue-300/30 sm:w-80 lg:w-96 rounded-xl overflow-hidden bg-foreground shadow-2xl">
                 <Image
-                  src={images.selectedProject}
+                  src={images.profile}
                   alt="Sai Naw Main - Lwant"
-                  fill
-                  className="object-cover"
+                  className="w-full h-auto"
                   priority
                   loading="eager"
                 />

@@ -37,7 +37,7 @@ const TechnologyCard = ({ technology }: TechnologyCardProps) => {
   return (
     <motion.div
       variants={itemVariants}
-      className="flex items-center gap-3 px-4 py-3 rounded-lg border border-blue-300/30 bg-foreground hover:bg-foreground/90 cursor-pointer hover:border-blue-300/50 transition-color duration-300"
+      className="flex items-center gap-3 px-4 py-3 rounded-full border border-blue-300/30 bg-foreground hover:bg-foreground/90 cursor-pointer hover:border-blue-300/50 transition-color duration-300"
     >
       <div style={{ color: technology.color }}>{technology.icon}</div>
       <p className="text-base font-medium ">{technology.name}</p>

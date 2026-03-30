@@ -191,7 +191,7 @@ export const ChatInterface = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="relative bg-foreground backdrop-blur-md rounded-md shadow-sm overflow-hidden max-w-5xl mx-auto"
+            className="relative bg-foreground backdrop-blur-md rounded-xl shadow-sm overflow-hidden max-w-5xl mx-auto"
           >
             <form className="flex items-end gap-3 p-3" onSubmit={handleSubmit}>
               {/* Text Input */}

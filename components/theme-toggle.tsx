@@ -48,7 +48,7 @@ export const ThemeToggle = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button
-          className="size-10 cursor-pointer rounded-md flex items-center justify-center
+          className="size-10 cursor-pointer rounded-xl flex items-center justify-center
                      hover:bg-foreground transition-colors duration-200
                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20"
           aria-label="Toggle theme"
@@ -63,7 +63,7 @@ export const ThemeToggle = () => {
 
       <DropdownMenuContent
         align="end"
-        className="w-36 rounded-md p-1.5 border border-blue-300/30 bg-background"
+        className="w-36 rounded-xl p-1.5 border border-blue-300/30 bg-background"
       >
         {themes.map((themeOption) => {
           const Icon = themeOption.icon;
@@ -74,7 +74,7 @@ export const ThemeToggle = () => {
               key={themeOption.value}
               onClick={() => setTheme(themeOption.value)}
               className={cn(
-                "flex items-center gap-2 p-2 rounded-md cursor-pointer text-muted-foreground hover:bg-foreground hover:text-primary/80 transition-colors duration-150",
+                "flex items-center gap-2 p-2 rounded-xl cursor-pointer text-muted-foreground hover:bg-foreground hover:text-primary/80 transition-colors duration-150",
                 isActive && "text-primary/80",
               )}
             >

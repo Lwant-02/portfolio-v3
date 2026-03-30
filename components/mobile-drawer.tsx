@@ -60,10 +60,10 @@ export const MobileDrawer = ({ navLinks, currentPath }: MobileDrawerProps) => {
               <Link
                 href={link.link}
                 className={cn(
-                  "flex items-center gap-3 p-3 rounded-md text-base md:text-lg font-medium transition-colors",
+                  "flex items-center gap-3 p-3 rounded-xl text-base md:text-lg font-medium transition-colors",
                   currentPath === link.link
                     ? "text-primary/80 bg-background"
-                    : "text-muted-foreground hover:text-primary/80 hover:bg-background/5"
+                    : "text-muted-foreground hover:text-primary/80 hover:bg-background/5",
                 )}
               >
                 {link.label}
@@ -87,10 +87,10 @@ export const MobileDrawer = ({ navLinks, currentPath }: MobileDrawerProps) => {
                     key={option.value}
                     onClick={() => setTheme(option.value)}
                     className={cn(
-                      "size-9 md:size-10 rounded-md flex items-center justify-center transition-colors",
+                      "size-9 md:size-10 rounded-xl flex items-center justify-center transition-colors",
                       theme === option.value
                         ? "bg-background text-primary/80"
-                        : "text-muted-foreground hover:text-primary/80"
+                        : "text-muted-foreground hover:text-primary/80",
                     )}
                     aria-label={`Set ${option.value} theme`}
                   >

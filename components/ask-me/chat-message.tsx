@@ -6,6 +6,7 @@ import { useState } from "react";
 
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { images } from "@/constant";
 
 interface ChatMessageProps {
   role: "user" | "system" | "tool" | "assistant";
@@ -32,13 +33,16 @@ export const ChatMessage = ({ role, content, status }: ChatMessageProps) => {
     <div
       className={cn(
         "flex w-full mb-4 gap-2 sm:gap-5 font-jetbrains-mono",
-        isUser ? "justify-end" : "justify-start"
+        isUser ? "justify-end" : "justify-start",
       )}
     >
       {/* Assistant Avatar */}
       {!isUser && (
-        <Avatar className="size-7 sm:size-11">
-          <AvatarImage src="https://github.com/shadcn.png" />
+        <Avatar className="size-7 sm:size-11 border border-blue-300/30">
+          <AvatarImage
+            src={images.hamster?.src || ""}
+            className="object-fill"
+          />
           <AvatarFallback>LW</AvatarFallback>
         </Avatar>
       )}
@@ -47,8 +51,8 @@ export const ChatMessage = ({ role, content, status }: ChatMessageProps) => {
       <div
         className={cn(
           isUser
-            ? "max-w-[90%] px-4 py-3 rounded-md shadow-sm bg-foreground text-primary"
-            : "max-w-full flex items-center flex-col"
+            ? "max-w-[90%] px-4 py-3 rounded-full shadow-sm bg-foreground text-primary"
+            : "max-w-full flex items-center flex-col",
         )}
       >
         {!isUser && (

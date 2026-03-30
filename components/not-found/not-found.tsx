@@ -40,7 +40,7 @@ export default function NotFound() {
             <Button
               asChild
               size="lg"
-              className="rounded-md px-8 h-12 text-base font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+              className="rounded-full px-8 h-12 text-base font-medium shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <a href="/">
                 <ArrowLeft className="mr-2 h-4 w-4" />

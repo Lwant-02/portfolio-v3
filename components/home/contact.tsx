@@ -102,7 +102,6 @@ export const Contact = () => {
               whileInView="visible"
               viewport={{ once: true }}
             >
-
               <FormField
                 control={form.control}
                 name="email"
@@ -112,7 +111,7 @@ export const Contact = () => {
                     <FormControl>
                       <Input
                         placeholder="Please enter your email"
-                        className="h-12 rounded-md border shadow-sm border-blue-300/30 focus:ring-1! focus:ring-blue-300/50"
+                        className="h-12 rounded-full border shadow-sm border-blue-300/30 focus:ring-1! focus:ring-blue-300/50"
                         {...field}
                       />
                     </FormControl>
@@ -130,7 +129,7 @@ export const Contact = () => {
                       <Textarea
                         placeholder="Leave some meaningful message"
                         {...field}
-                        className="resize-none h-32 rounded-md shadow-sm border border-blue-300/30 focus:ring-1! focus:ring-blue-300/50"
+                        className="resize-none h-32 rounded-xl shadow-sm border border-blue-300/30 focus:ring-1! focus:ring-blue-300/50"
                       />
                     </FormControl>
                     <FormMessage className="text-blue-400" />
