@@ -1,7 +1,3 @@
-import selectedProject from "@/assets/images/pica_ai.png";
-import profile from "@/assets/images/profile.jpg";
-import hamster from "@/assets/images/hamster.png";
-
 // Animation variants
 export const containerVariants = {
   hidden: { opacity: 0 },
@@ -37,29 +33,24 @@ export const email = "jaimain671@gmail.com";
 
 export const SAMPLE_QUESTIONS = [
   {
-    question: "What are your tech stacks?",
+    question: "What are your core tech stacks?",
   },
   {
-    question: "Are you available for hire?",
+    question: "Tell me about your internship at LiveIn Thailand.",
   },
   {
-    question: "How many years of experience do you have?",
+    question: "How many hackathons have you won?",
   },
   {
-    question: "What projects have you worked on?",
-  },
-  {
-    question: "How can I contact you?",
+    question: "Are you available for full-time opportunities?",
   },
 ];
 
 export const testProject = {
-  image: selectedProject,
+  image: "",
   title: "LikDai (Shan Typing Tutor)",
   description:
     "LikDai – A modern and interactive typing tutor with support for Shan and English languages. Built for accuracy tracking, real-time feedback, and a smooth user experience.",
   extraLink: "/projects",
   date: "Mar 2024 - Present",
 };
-
-export const images = { selectedProject, profile, hamster };

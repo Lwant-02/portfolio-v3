@@ -73,7 +73,7 @@ export const AchievementDetail = ({ achievement }: AchievementDetailProps) => {
           />
         </motion.div>
 
-        {/* Description */}
+        {/* Description & Details */}
         <motion.div className="space-y-6" variants={itemVariants}>
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
             About This Achievement
@@ -81,6 +81,19 @@ export const AchievementDetail = ({ achievement }: AchievementDetailProps) => {
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-jetbrains-mono">
             {achievement.description}
           </p>
+          {achievement.details && achievement.details.length > 0 && (
+            <ul className="space-y-4 pt-4">
+              {achievement.details.map((detail, index) => (
+                <li
+                  key={index}
+                  className="flex gap-4 text-muted-foreground text-sm space-y-1 md:text-lg font-jetbrains-mono"
+                >
+                  <span className="text-blue-400 mt-1.5 shrink-0">•</span>
+                  <span>{detail}</span>
+                </li>
+              ))}
+            </ul>
+          )}
         </motion.div>
       </motion.div>
     </section>

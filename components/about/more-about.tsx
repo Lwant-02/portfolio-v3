@@ -21,25 +21,25 @@ import { cn } from "@/lib/utils";
 const quickStats = [
   {
     icon: <Briefcase className="size-6" />,
-    value: "2+",
+    value: "1+",
     label: "Years Experience",
     color: "text-blue-400",
   },
   {
     icon: <FolderGit2 className="size-6" />,
-    value: "10+",
+    value: "5+",
     label: "Projects Completed",
     color: "text-green-400",
   },
   {
     icon: <Award className="size-6" />,
-    value: "5+",
+    value: "7+",
     label: "Certificates Earned",
     color: "text-amber-400",
   },
   {
     icon: <Trophy className="size-6" />,
-    value: "3+",
+    value: "4",
     label: "Hackathons Participated",
     color: "text-purple-400",
   },
@@ -122,11 +122,12 @@ export const MoreAbout = () => {
             viewport={{ once: true }}
           >
             <p className="text-lg md:text-xl text-muted-foreground font-jetbrains-mono leading-relaxed">
-              Started coding in 2023 out of pure curiosity. Went from
-              freelancing on Upwork to building real products at Pico
-              Innovation. Now I spend my days crafting AI-powered tools and
-              exploring whatever catches my interest—whether it's a new
-              framework, a game, or just a random idea worth building.
+              Started coding in 2023 out of pure curiosity and a passion for
+              problem-solving. Transitioned from developing mobile apps to
+              building full-stack web solutions and AI chatbots. Now I'm
+              constantly exploring new tech stacks and participating in
+              hackathons, always looking for the next challenge that pushes my
+              boundaries and helps me grow as an engineer.
             </p>
           </motion.div>
 

@@ -1,44 +1,46 @@
 export const experiences = [
   {
+    year: "2026",
+    roles: [
+      {
+        title: "Line Chat Bot Developer Intern",
+        organization: "LiveIn Thailand",
+        dateRange: "Dec 2025 - Apr 2026",
+        description:
+          "Developed and maintained LINE ChatBot features to enhance customer engagement and internal workflow automation. Worked with Node.js, APIs, cloud deployment, and messaging systems.",
+      },
+      {
+        title: "Applied Artificial Intelligence Innovation Challenge",
+        organization: "Rangsit University",
+        dateRange: "31 Mar 2026",
+        description:
+          "Designed and prototyped a practical AI solution using Next.js and TypeScript to address real-world organizational challenges. Engineered a functional technical pipeline integrating LLM APIs and Vapi.",
+      },
+    ],
+  },
+  {
     year: "2025",
     roles: [
       {
-        title: "Building Pica Chat",
-        organization: "Pico Innovation (Part-Time)",
-        dateRange: "Oct - Present",
+        title: "Winner - Tuk Heng Hackathon - LikDai",
+        organization: "Hao Haa",
+        dateRange: "5 Aug 2025",
         description:
-          "After nine months full-time at Pico, I moved to a part-time role to focus on Pica Chat, a conversational AI assistant I'm building with Next.js. I've been researching existing AI chat apps and refining the frontend to feel simple, fast, and intuitive.",
+          "Developed a full-featured web application helping Shan language learners practice typing with real-time feedback, custom keymaps, and typing analytics.",
       },
       {
-        title: "Component Systems & PDF Tools",
-        organization: "Pico Innovation",
-        dateRange: "Jan - Sep",
+        title: "Code For Hope Hackathon 2025",
+        organization: "Payap University",
+        dateRange: "Jun 2025",
         description:
-          "Built and documented a shared library of 25+ reusable components, worked on the in-house PDF editor, and shipped features like rich-text editing with Tiptap, all aimed at cleaner code and smoother design workflows.",
+          "Collaborated in a fast-paced 48-hour sprint to develop a social impact project addressing employment challenges.",
       },
-    ],
-  },
-  {
-    year: "2024",
-    roles: [
       {
-        title: "Started as an Intern",
-        organization: "Pico Innovation",
-        dateRange: "May - Dec",
+        title: "Third Place - Cimso-RSU Hospitality Hackathon 2025",
+        organization: "Cimso-RSU",
+        dateRange: "Mar 2025",
         description:
-          "Started my journey as an intern, researching editor tools like Tiptap and Lexical. That early research and component work helped set the direction for the MijnUI design system that followed.",
-      },
-    ],
-  },
-  {
-    year: "2023",
-    roles: [
-      {
-        title: "Freelancing",
-        organization: "Upwork & Local Clients",
-        dateRange: "Aug - Dec",
-        description:
-          "Took on small frontend projects to learn from real client work. Focused on clean layouts, responsive design, and understanding how people interact with simple interfaces.",
+          "Built a functional tech solution to improve the hospitality experience using React, Node.js, Javascript, Express.js and LLM APIs.",
       },
     ],
   },

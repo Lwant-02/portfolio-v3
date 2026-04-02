@@ -12,7 +12,6 @@ import {
   github,
   linkedin,
   email,
-  images,
 } from "@/constant";
 import GithubIcon from "../ui/github-icon";
 import LinkedinIcon from "../ui/linkedin-icon";
@@ -41,10 +40,12 @@ export const AboutHero = () => {
               {/* Main image container */}
               <div className="relative w-72 border border-blue-300/30 sm:w-80 lg:w-96 rounded-xl overflow-hidden bg-foreground shadow-2xl">
                 <Image
-                  src={images.profile}
+                  src="/images/profile.jpg"
                   alt="Sai Naw Main - Lwant"
                   className="w-full h-auto"
                   priority
+                  width={1000}
+                  height={1000}
                   loading="eager"
                 />
               </div>
@@ -83,13 +84,13 @@ export const AboutHero = () => {
             >
               <div className="flex items-center gap-2 bg-foreground px-4 py-2 rounded-full">
                 <MapPin className="size-4 text-blue-400" />
-                <span className="text-sm font-jetbrains-mono">Thailand</span>
+                <span className="text-sm font-jetbrains-mono">
+                  Bangkok, Thailand
+                </span>
               </div>
               <div className="flex items-center gap-2 bg-foreground px-4 py-2 rounded-full">
                 <Rocket className="size-4 text-blue-400" />
-                <span className="text-sm font-jetbrains-mono">
-                  2+ Years Exp
-                </span>
+                <span className="text-sm font-jetbrains-mono">1 Year Exp</span>
               </div>
             </motion.div>
 
@@ -98,17 +99,23 @@ export const AboutHero = () => {
               className="text-lg text-muted-foreground leading-relaxed w-full font-jetbrains-mono"
               variants={itemVariants}
             >
-              I'm a passionate developer who loves building beautiful,
-              functional web applications. With experience in modern
-              technologies like React, Next.js, and TypeScript, I focus on
-              creating seamless user experiences and clean, maintainable code.
+              Full-Stack Developer with 1 year of experience in the JS/TS
+              ecosystem (React, Next.js, Node.js). Recently completed an
+              internship building automated chatbots and have a track record of
+              award-winning hackathon projects. Actively building scalable,
+              cloud-native architectures.
             </motion.p>
 
             {/* CTA & Social */}
             <motion.div className="space-y-6" variants={itemVariants}>
               <div className="flex">
-                <Button size="lg" className="primary-btn">
-                  Download Resume
+                <Button asChild size="lg" className="primary-btn">
+                  <a
+                    href="/pdf/sai-naw-main-resume.pdf"
+                    download="Sai_Naw_Main_Resume.pdf"
+                  >
+                    Download Resume
+                  </a>
                 </Button>
               </div>
 

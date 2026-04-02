@@ -49,10 +49,28 @@ export const Timeline = ({ data }: TimelineProps) => {
                       </p>
                     </div>
 
-                    {/* Description */}
+                      {/* Description */}
                     <p className="text-sm md:text-lg text-muted-foreground leading-relaxed font-jetbrains-mono">
                       {role.description}
                     </p>
+                    {/* View Link if available */}
+                    {role.link && (
+                      <div className="pt-2">
+                        <a
+                          href={role.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 group text-blue-400 hover:text-blue-300 font-jetbrains-mono transition-colors"
+                        >
+                          <span className="text-sm md:text-base border-b border-blue-400/30 group-hover:border-blue-300 pb-0.5">
+                            View Certificate
+                          </span>
+                          <span className="text-lg group-hover:translate-x-1 transition-transform">
+                            →
+                          </span>
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}

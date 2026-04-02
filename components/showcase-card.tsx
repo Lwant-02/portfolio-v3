@@ -20,7 +20,7 @@ export const ShowcaseCard = ({
     <div className="space-y-10">
       {/* Project Mockup */}
       <motion.div
-        className="relative w-full aspect-4/2 rounded-md overflow-hidden border border-foreground group shadow-sm"
+        className="relative w-full aspect-video rounded-md overflow-hidden border border-foreground group shadow-sm"
         variants={itemVariants}
         initial="hidden"
         whileInView="visible"
@@ -31,11 +31,11 @@ export const ShowcaseCard = ({
           className="relative block cursor-pointer w-full h-full rounded-md overflow-hidden"
         >
           <Image
-            src={image}
+            src={image || ""}
             alt={title}
             fill
             priority
-            className="object-center hover:scale-105 transition-transform duration-700"
+            className="object-cover object-center hover:scale-105 transition-transform duration-700"
           />
 
           {/* Date overlay - always visible on mobile, shows on hover on desktop */}
@@ -49,15 +49,15 @@ export const ShowcaseCard = ({
 
       {/* Project Details */}
       <div className="space-y-6">
-        <motion.div
+        <motion.p
           variants={itemVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="inline-flex items-center gap-2 text-2xl md:text-4xl font-medium "
+          className="inline-flex items-center gap-2 text-2xl md:text-4xl font-medium w-full overflow-hidden whitespace-nowrap text-ellipsis"
         >
-          {title}
-        </motion.div>
+          <span className="truncate block w-full">{title}</span>
+        </motion.p>
 
         <motion.p
           className="text-lg md:text-xl text-muted-foreground w-full leading-relaxed font-jetbrains-mono line-clamp-2"

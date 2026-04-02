@@ -16,6 +16,7 @@ interface TimelineData {
     organization: string;
     dateRange: string;
     description: string;
+    link?: string;
   }[];
 }
 
@@ -45,8 +46,10 @@ interface ProjectData {
   title: string;
   description: string;
   link: string;
+  demoLink?: string;
   date: string;
   tags: string[];
+  details?: string[];
 }
 
 interface AchievementData {
@@ -55,6 +58,8 @@ interface AchievementData {
   title: string;
   description: string;
   link: string;
+  demoLink?: string;
   date: string;
   category: string;
+  details?: string[];
 }

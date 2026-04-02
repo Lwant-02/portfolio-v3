@@ -3,7 +3,7 @@ import { projects } from "@/data/project";
 import { achievements } from "@/data/achievement";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://lwant.dev";
+  const baseUrl = process.env.BASE_URL || "http://localhost:3000";
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [

@@ -64,7 +64,7 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
           />
         </motion.div>
 
-        {/* Description */}
+        {/* Description & Details */}
         <motion.div className="space-y-6" variants={itemVariants}>
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
             About This Project
@@ -72,8 +72,21 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-jetbrains-mono">
             {project.description}
           </p>
+          {project.details && project.details.length > 0 && (
+            <ul className="space-y-4 pt-4">
+              {project.details.map((detail, index) => (
+                <li
+                  key={index}
+                  className="flex gap-4 text-muted-foreground text-sm space-y-1 md:text-lg font-jetbrains-mono"
+                >
+                  <span className="text-blue-400 mt-1.5 shrink-0">•</span>
+                  <span>{detail}</span>
+                </li>
+              ))}
+            </ul>
+          )}
         </motion.div>
-
+ 
         {/* Tech Stack */}
         <motion.div className="space-y-6" variants={itemVariants}>
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
@@ -92,14 +105,25 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
             ))}
           </div>
         </motion.div>
-        <motion.div variants={itemVariants}>
-          <Button asChild variant="outline" className="outline-btn group w-72">
-            <Link href="/projects" className="flex items-center gap-2">
-              See Demo
-              <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
-          </Button>
-        </motion.div>
+        {project.demoLink && (
+          <motion.div variants={itemVariants}>
+            <Button
+              asChild
+              variant="outline"
+              className="outline-btn group w-72"
+            >
+              <Link
+                href={project.demoLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                See Demo
+                <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
+            </Button>
+          </motion.div>
+        )}
       </motion.div>
     </section>
   );

@@ -200,13 +200,15 @@ export const ChatInterface = () => {
                   <div className="pointer-events-none absolute top-2 left-1 text-muted-foreground text-base">
                     <TypeAnimation
                       sequence={[
+                        "Ask me about my projects...",
+                        1000,
+                        "What technologies do I use?",
+                        1000,
+                        "Tell me about my hackathon wins...",
+                        1000,
+                        "Where did I study ICT?",
+                        1000,
                         "Ask me anything...",
-                        1000,
-                        "What are your tech stacks...",
-                        1000,
-                        "Are you available for hire...",
-                        1000,
-                        "How many years of experience do you have...",
                         1000,
                       ]}
                       speed={50}

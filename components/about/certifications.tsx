@@ -1,18 +1,16 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
-import { containerVariants, itemVariants, testProject } from "@/constant";
-import { ShowcaseCard } from "../showcase-card";
+import { containerVariants, itemVariants } from "@/constant";
+import { Timeline } from "../timeline";
+import { certifications } from "@/data/certification";
 
-export const SelectedAchievement = () => {
+export const Certifications = () => {
   return (
-    <section
-      className="min-h-screen w-full pb-32 flex justify-center items-center"
-      id="projects"
-    >
+    <section className="min-h-screen w-full py-20" id="certifications">
       <motion.div
-        className="w-full mx-auto space-y-10"
+        className="w-full mx-auto space-y-7"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -21,12 +19,12 @@ export const SelectedAchievement = () => {
         {/* Section Header */}
         <motion.h2
           className="text-3xl md:text-6xl font-bold tracking-tight"
-          variants={itemVariants}
           initial="hidden"
+          variants={itemVariants}
           whileInView="visible"
           viewport={{ once: true }}
         >
-          Signature Milestone
+          Certifications & Awards
         </motion.h2>
 
         <motion.p
@@ -36,11 +34,11 @@ export const SelectedAchievement = () => {
           viewport={{ once: true }}
           className="text-xl font-medium font-jetbrains-mono text-muted-foreground"
         >
-          Some of my achievements on my journey
+          Key achievements and recognized milestones in my career
         </motion.p>
 
-        {/* Project Showcase */}
-        <ShowcaseCard {...testProject} />
+        {/* Timeline */}
+        <Timeline data={certifications} />
       </motion.div>
     </section>
   );

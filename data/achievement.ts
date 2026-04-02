@@ -1,35 +1,35 @@
-import { images } from "@/constant";
 import { AchievementData } from "@/type";
 
 export const achievements: AchievementData[] = [
   {
-    slug: "reusable-components",
-    image: images.selectedProject,
-    title: "Built 25+ Reusable Components",
+    slug: "winner-tuk-heng-hackathon",
+    image: "/images/achievements/likdai.JPG",
+    title: "Winner - Tuk Heng Hackathon",
     description:
-      "Designed and documented a shared library of 25+ reusable UI components at Pico Innovation, improving code consistency and accelerating development across the team.",
-    link: "/achievements/reusable-components",
-    date: "2025",
-    category: "Engineering",
+      "Won first place for LikDai, a Shan typing tutor web app that helps language learners practice with real-time feedback and analytics.",
+    link: "/achievements/winner-tuk-heng-hackathon",
+    date: "Aug 2025",
+    category: "Hackathon",
+    details: [
+      "Won 1st place in a competitive hackathon by addressing a critical language preservation need.",
+      "Developed LikDai independently, focusing on building a tool that handles native script efficiently.",
+      "Implemented a leaderboard and real-time accuracy tracking to gamify the learning experience.",
+      "Received praise for the project's cultural impact and technical execution.",
+    ],
   },
   {
-    slug: "intern-to-part-time",
-    image: images.selectedProject,
-    title: "Promoted from Intern to Part-Time",
+    slug: "third-place-cimso-rsu",
+    image: "/images/achievements/cimso-rsu.JPG",
+    title: "Third Place - Cimso-RSU Hackathon",
     description:
-      "Recognized for strong contributions during internship and promoted to a part-time developer role at Pico Innovation, continuing to lead frontend development efforts.",
-    link: "/achievements/intern-to-part-time",
-    date: "2025",
-    category: "Career",
-  },
-  {
-    slug: "freelance-upwork",
-    image: images.selectedProject,
-    title: "Freelance Projects on Upwork",
-    description:
-      "Successfully completed multiple freelance frontend projects on Upwork and with local clients, building responsive layouts and clean interfaces from real client requirements.",
-    link: "/achievements/freelance-upwork",
-    date: "2023",
-    category: "Freelancing",
+      "Secured 3rd place out of 20+ teams by building a tech solution to improve the hospitality experience using React, Node.js, and LLM APIs.",
+    link: "/achievements/third-place-cimso-rsu",
+    date: "Mar 2025",
+    category: "Hackathon",
+    details: [
+      "Collaborated in a team to build a hospitality management solution within 48 hours.",
+      "Integrated LLM APIs to automate room service requests and staff coordination.",
+      "Prototyped a complete dashboard that industry experts recognized for its practical application.",
+    ],
   },
 ];

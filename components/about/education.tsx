@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 
 import { containerVariants, itemVariants } from "@/constant";
 import { Timeline } from "../timeline";
-import { experiences } from "@/data/experience";
+import { education } from "@/data/education";
 
 export const Education = () => {
   return (
-    <section className="min-h-screen w-full pb-32 sm:py-10" id="experience">
+    <section className="min-h-screen w-full" id="education">
       <motion.div
         className="w-full mx-auto space-y-7"
         variants={containerVariants}
@@ -38,7 +38,7 @@ export const Education = () => {
         </motion.p>
 
         {/* Timeline */}
-        <Timeline data={experiences} />
+        <Timeline data={education} />
       </motion.div>
     </section>
   );

@@ -1,6 +1,7 @@
 import { AboutHero } from "@/components/about/about-hero";
 import { Education } from "@/components/about/education";
 import { MoreAbout } from "@/components/about/more-about";
+import { Certifications } from "@/components/about/certifications";
 import { Footer } from "@/components/footer";
 import type { Metadata } from "next";
 
@@ -21,6 +22,9 @@ export default function Page() {
 
       {/* More About Me */}
       <MoreAbout />
+
+      {/* Certifications & Awards */}
+      <Certifications />
 
       {/* Education */}
       <Education />

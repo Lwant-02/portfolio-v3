@@ -6,7 +6,6 @@ import { useState } from "react";
 
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { images } from "@/constant";
 
 interface ChatMessageProps {
   role: "user" | "system" | "tool" | "assistant";
@@ -39,10 +38,7 @@ export const ChatMessage = ({ role, content, status }: ChatMessageProps) => {
       {/* Assistant Avatar */}
       {!isUser && (
         <Avatar className="size-7 sm:size-11 border border-blue-300/30">
-          <AvatarImage
-            src={images.hamster?.src || ""}
-            className="object-fill"
-          />
+          <AvatarImage src="/hamster.png" className="object-cover p-1" />
           <AvatarFallback>LW</AvatarFallback>
         </Avatar>
       )}
@@ -51,7 +47,7 @@ export const ChatMessage = ({ role, content, status }: ChatMessageProps) => {
       <div
         className={cn(
           isUser
-            ? "max-w-[90%] px-4 py-3 rounded-full shadow-sm bg-foreground text-primary"
+            ? "max-w-[90%] px-5 py-3 rounded-full shadow-sm bg-foreground text-primary"
             : "max-w-full flex items-center flex-col",
         )}
       >

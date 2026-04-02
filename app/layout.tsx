@@ -17,7 +17,7 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const BASE_URL = "https://lwant.dev";
+const BASE_URL = process.env.BASE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     canonical: BASE_URL,
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/hamster.png",
   },
 };
 
@@ -154,4 +154,3 @@ export default function RootLayout({
     </html>
   );
 }
-

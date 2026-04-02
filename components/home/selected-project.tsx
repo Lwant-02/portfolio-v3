@@ -2,10 +2,12 @@
 
 import { motion } from "motion/react";
 
-import { containerVariants, itemVariants, testProject } from "@/constant";
+import { containerVariants, itemVariants } from "@/constant";
+import { projects } from "@/data/project";
 import { ShowcaseCard } from "../showcase-card";
 
 export const SelectedProject = () => {
+  const selectedProject = projects[0];
   return (
     <section
       className="min-h-screen w-full pb-32 flex justify-center items-center"
@@ -40,7 +42,7 @@ export const SelectedProject = () => {
         </motion.p>
 
         {/* Project Showcase */}
-        <ShowcaseCard {...testProject} />
+        <ShowcaseCard {...selectedProject} />
       </motion.div>
     </section>
   );

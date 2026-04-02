@@ -1,45 +1,104 @@
-import { images } from "@/constant";
 import { ProjectData } from "@/type";
 
 export const projects: ProjectData[] = [
   {
     slug: "likdai",
-    image: images.selectedProject,
+    image: "/images/projects/likdai.png",
     title: "LikDai (Shan Typing Tutor)",
     description:
       "A modern and interactive typing tutor with support for Shan and English languages. Built for accuracy tracking, real-time feedback, and a smooth user experience.",
     link: "/projects/likdai",
+    demoLink: "https://likdai.shantype.com",
     date: "Mar 2024 - Present",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    tags: [
+      "React.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Shadcn",
+      "Node.js",
+      "Express.js",
+    ],
+    details: [
+      "The Goal: To help users learn and practice Shan keyboard layouts through interactive, gamified lessons.",
+      "Tech Stack: Built using React and Next.js for high performance and universal accessibility on any browser.",
+      "Impact: Designed to help preserve the Shan language and make digital communication easier for the Shan community.",
+      "Addressed the challenge where many Shan people struggle to type efficiently in their native script despite using digital devices.",
+    ],
   },
   {
-    slug: "pica-chat",
-    image: images.selectedProject,
-    title: "Pica Chat",
+    slug: "whisper",
+    image: "/images/projects/whisper.png",
+    title: "Whisper (Global Messaging Map)",
     description:
-      "A conversational AI assistant built with Next.js. Designed to feel simple, fast, and intuitive with a clean frontend and real-time AI responses.",
-    link: "/projects/pica-chat",
-    date: "Oct 2025 - Present",
-    tags: ["Next.js", "AI SDK", "TypeScript"],
-  },
-  {
-    slug: "mijnui-design-system",
-    image: images.selectedProject,
-    title: "MijnUI Design System",
-    description:
-      "A shared library of 25+ reusable components with full documentation. Built to streamline design workflows and ensure consistent UI across projects.",
-    link: "/projects/mijnui-design-system",
-    date: "Jan 2025 - Sep 2025",
-    tags: ["React", "Storybook", "TypeScript"],
-  },
-  {
-    slug: "pdf-editor",
-    image: images.selectedProject,
-    title: "PDF Editor",
-    description:
-      "An in-house PDF editor featuring rich-text editing with Tiptap, annotation tools, and document management capabilities.",
-    link: "/projects/pdf-editor",
+      "A real-time, interactive global messaging web application with a focus on absolute privacy. Features an account-free experience and zero IP logging on a map-based UI.",
+    link: "/projects/whisper",
+    demoLink: "https://whisperworld.vercel.app",
     date: "2025",
-    tags: ["React", "Tiptap", "PDF.js"],
+    tags: ["Next.js", "TypeScript", "Prisma", "Supabase"],
+    details: [
+      "Developed a real-time, interactive global messaging map using Next.js, TypeScript, and Supabase.",
+      "Engineered a privacy-first architecture with an account-free experience and zero IP logging.",
+      "Leveraged Supabase's real-time database to ensure instant, low-latency message delivery.",
+      "Designed an atmospheric, map-based user interface for intuitive global connection.",
+    ],
+  },
+  {
+    slug: "tai-expense",
+    image: "/images/projects/tai-expense.png",
+    title: "Tai Expense (Offline Tracker)",
+    description:
+      "A cross-platform personal finance mobile app for the Shan community, featuring full bilingual support and a robust offline-first architecture using SQLite.",
+    link: "/projects/tai-expense",
+    demoLink: "https://github.com/Lwant-02/Tai-Expense.git",
+    date: "2025",
+    tags: ["React Native", "Expo", "SQLite", "TypeScript"],
+    details: [
+      "Built a cross-platform mobile application tailored for the Shan community using React Native and Expo.",
+      "Implemented a robust offline-first architecture using a local SQLite database for maximum privacy.",
+      "Features full bilingual support (English and Shan) to lower the entry barrier for the community.",
+      "Includes financial management tools like income/expense tracking, budgets, and bill reminders.",
+    ],
+  },
+  {
+    slug: "ping-pal",
+    image: "/images/projects/ping-pal.png",
+    title: "Ping Pal Chat App",
+    description:
+      "A real-time chat application where I tackled socket communication, MongoDB integration, and live messaging features.",
+    link: "/projects/ping-pal",
+    demoLink: "https://ping-pal-uqm9.onrender.com",
+    date: "2024",
+    tags: [
+      "React",
+      "JavaScript",
+      "TailwindCSS",
+      "DaisyUI",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Socket.io",
+    ],
+    details: [
+      "Tackled complex real-time socket communication for instant messaging.",
+      "Integrated MongoDB for message persistence and user management.",
+      "Implemented live messaging features with a smooth, responsive UI.",
+      "The backend service was hosted on render with a free tier (spin-up time about 50s).",
+    ],
+  },
+  {
+    slug: "ai-mock-job-interview",
+    image: "/images/projects/prepwise.png",
+    title: "AI Mock Job Interview",
+    description:
+      "An AI-powered mock interview platform that challenged me to integrate speech recognition, real-time responses, and AI APIs.",
+    link: "/projects/ai-mock-job-interview",
+    demoLink: "https://ai-mock-job-interview.vercel.app/",
+    date: "2024",
+    tags: ["Next.js", "Firebase", "Shadcdn", "Vapi Api", "AI-SDK"],
+    details: [
+      "Integrated advanced speech recognition for real-time user interaction.",
+      "Leveraged Vapi API and AI-SDK for intelligent mock interview responses.",
+      "Designed a professional interview experience with Firebase for storage and Shadcn for UI components.",
+    ],
   },
 ];
