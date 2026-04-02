@@ -17,7 +17,7 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const BASE_URL = process.env.BASE_URL || "http://localhost:3000";
+const BASE_URL = process.env.BASE_URL || "https://nawmain.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -65,21 +65,12 @@ export const metadata: Metadata = {
     title: "Sai Naw Main (Lwant) | Full-Stack Developer Portfolio",
     description:
       "Full-stack developer passionate about creating beautiful, functional web applications. Explore my projects, achievements, and development journey.",
-    images: [
-      {
-        url: `${BASE_URL}/hamster.png`,
-        width: 1200,
-        height: 630,
-        alt: "Sai Naw Main (Lwant) – Full-Stack Developer Portfolio",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Sai Naw Main (Lwant) | Full-Stack Developer Portfolio",
     description:
       "Full-stack developer passionate about creating beautiful, functional web applications. Explore my projects, achievements, and development journey.",
-    images: [`${BASE_URL}/hamster.png`],
   },
   alternates: {
     canonical: BASE_URL,

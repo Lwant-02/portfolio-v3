@@ -157,7 +157,7 @@ export default async function Image() {
               fontWeight: 400,
             }}
           >
-            lwant.dev
+            nawmain.dev
           </span>
         </div>
       </div>
