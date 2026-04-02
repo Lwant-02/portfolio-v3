@@ -67,7 +67,7 @@ export const metadata: Metadata = {
       "Full-stack developer passionate about creating beautiful, functional web applications. Explore my projects, achievements, and development journey.",
     images: [
       {
-        url: "/opengraph-image.png",
+        url: `${BASE_URL}/hamster.png`,
         width: 1200,
         height: 630,
         alt: "Sai Naw Main (Lwant) – Full-Stack Developer Portfolio",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     title: "Sai Naw Main (Lwant) | Full-Stack Developer Portfolio",
     description:
       "Full-stack developer passionate about creating beautiful, functional web applications. Explore my projects, achievements, and development journey.",
-    images: ["/opengraph-image.png"],
+    images: [`${BASE_URL}/hamster.png`],
   },
   alternates: {
     canonical: BASE_URL,
