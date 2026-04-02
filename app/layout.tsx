@@ -64,13 +64,22 @@ export const metadata: Metadata = {
     siteName: "Lwant Portfolio",
     title: "Sai Naw Main (Lwant) | Full-Stack Developer Portfolio",
     description:
-      "Full-stack developer passionate about creating beautiful, functional web applications. Explore my projects, achievements, and development journey.",
+      "Full-Stack developer passionate about creating beautiful, functional web applications. Explore my projects, achievements, and development journey.",
+    images: [
+      {
+        url: `${BASE_URL}/hamster.png`,
+        width: 96,
+        height: 96,
+        alt: "Sai Naw Main (Lwant) – Portfolio Logo",
+      },
+    ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Sai Naw Main (Lwant) | Full-Stack Developer Portfolio",
     description:
-      "Full-stack developer passionate about creating beautiful, functional web applications. Explore my projects, achievements, and development journey.",
+      "Full-Stack developer passionate about creating beautiful, functional web applications. Explore my projects, achievements, and development journey.",
+    images: [`${BASE_URL}/hamster.png`],
   },
   alternates: {
     canonical: BASE_URL,
