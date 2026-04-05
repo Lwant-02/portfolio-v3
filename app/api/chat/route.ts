@@ -21,7 +21,7 @@ export const POST = async (req: Request) => {
 
     const { text } = await generateText({
       system: SYSTEM_PROMPT,
-      model: googleGenerativeAI("gemini-3-flash-preview"),
+      model: googleGenerativeAI("gemini-3.1-flash-lite-preview"),
       prompt: messages,
       temperature: 0.7,
       providerOptions: {
