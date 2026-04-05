@@ -26,20 +26,26 @@ export const projects: ProjectData[] = [
     ],
   },
   {
-    slug: "whisper",
-    image: "/images/projects/whisper.png",
-    title: "Whisper (Global Messaging Map)",
+    slug: "zata",
+    image: "/images/projects/zata.png",
+    title: "Zata: Shan AI Tarot & Guidance",
     description:
-      "A real-time, interactive global messaging web application with a focus on absolute privacy. Features an account-free experience and zero IP logging on a map-based UI.",
-    link: "/projects/whisper",
-    demoLink: "https://whisperworld.vercel.app",
-    date: "2025",
-    tags: ["Next.js", "TypeScript", "Prisma", "Supabase"],
+      "A culturally-aware AI spiritual guide designed to preserve the Shan (Tai) language through strict script enforcement and ethical AI safety filters.",
+    link: "/projects/zata",
+    demoLink: "https://taizata.app",
+    date: "2026",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Google Gemini",
+      "Tailwind CSS",
+      "AI Safety",
+    ],
     details: [
-      "Developed a real-time, interactive global messaging map using Next.js, TypeScript, and Supabase.",
-      "Engineered a privacy-first architecture with an account-free experience and zero IP logging.",
-      "Leveraged Supabase's real-time database to ensure instant, low-latency message delivery.",
-      "Designed an atmospheric, map-based user interface for intuitive global connection.",
+      "Engineered a custom System Prompt with a Mandatory Reference Library to enforce authentic Shan (Tai) script and vocabulary.",
+      "Implemented a specialized AI Safety Layer to detect and politely refuse inappropriate content, providing empathetic guidance instead.",
+      "Optimized for low-resource language processing to prevent linguistic interference from neighboring scripts like Thai or Burmese.",
+      "Designed a daily usage limit (5 questions/day) to manage Free API quotas while providing fair access to the community.",
     ],
   },
   {
@@ -57,6 +63,24 @@ export const projects: ProjectData[] = [
       "Implemented a robust offline-first architecture using a local SQLite database for maximum privacy.",
       "Features full bilingual support (English and Shan) to lower the entry barrier for the community.",
       "Includes financial management tools like income/expense tracking, budgets, and bill reminders.",
+    ],
+  },
+
+  {
+    slug: "whisper",
+    image: "/images/projects/whisper.png",
+    title: "Whisper (Global Messaging Map)",
+    description:
+      "A real-time, interactive global messaging web application with a focus on absolute privacy. Features an account-free experience and zero IP logging on a map-based UI.",
+    link: "/projects/whisper",
+    demoLink: "https://whisperworld.vercel.app",
+    date: "2025",
+    tags: ["Next.js", "TypeScript", "Prisma", "Supabase"],
+    details: [
+      "Developed a real-time, interactive global messaging map using Next.js, TypeScript, and Supabase.",
+      "Engineered a privacy-first architecture with an account-free experience and zero IP logging.",
+      "Leveraged Supabase's real-time database to ensure instant, low-latency message delivery.",
+      "Designed an atmospheric, map-based user interface for intuitive global connection.",
     ],
   },
   {
