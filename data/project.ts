@@ -27,7 +27,7 @@ export const projects: ProjectData[] = [
   },
   {
     slug: "zata",
-    image: "/images/projects/zata.png",
+    image: "/images/projects/zata.PNG",
     title: "Zata: Shan AI Tarot & Guidance",
     description:
       "A culturally-aware AI spiritual guide designed to preserve the Shan (Tai) language through strict script enforcement and ethical AI safety filters.",
